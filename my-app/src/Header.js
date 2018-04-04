@@ -21,7 +21,7 @@ class Header extends Component {
         <img src={logo} className="logo"/>
         <div className="buttons-container">
           <HeaderButton text={this.props.button1}/>
-          <HeaderButton text={this.props.button2}/>
+          <a href="/signup" className="href"><HeaderButton text={this.props.button2}/></a>
         </div>
       </div>
     );

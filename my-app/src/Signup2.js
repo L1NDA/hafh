@@ -9,7 +9,7 @@ import {
   Switch
 } from 'react-router-dom';
 
-class Signup extends Component {
+class Signup2 extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -32,11 +32,13 @@ class Signup extends Component {
         <Header button1="log in" button2="sign up"/>
           <div className="signup">
             <form className="signup-form" noValidate>
-              <div className="signup-title">REGISTER</div>
+              <div className="signup-title">WELCOME TO HOME <br></br>AWAY FROM HOME!</div>
+              <div className="signup-title2">A few more details will let us customize your experience...</div>
               <div className="form-inner">
+                <input type="text" required className="signup-formControl" name="city" placeholder="What city are you living in?"/>
                 <div className="row">
-                  <input type="text" className="signup-formControl"  name="firstName" placeholder="First Name"/>
-                  <input type="text" className="signup-formControl" name="lastName" placeholder="Last Name"/>
+                  <input type="text" className="signup-formControl"  name="gender" placeholder="Gender"/>
+                  <input type="text" className="signup-formControl" name="age" placeholder="Age"/>
                 </div>
 
                 <input type="email" required className="signup-formControl email" name="email" placeholder="Email"/>
@@ -45,7 +47,7 @@ class Signup extends Component {
                   <input type="password" className="signup-formControl" name="passwordRedo" placeholder="Retype Password" />
                 </div>
                 <input type="text" className="signup-formControl nationality"  name="nationality" placeholder="Nationality"/>
-                <a href="/signup2" className="signup-btn">
+                <a href="/admin" className="signup-btn">
                   <FontAwesome
                     name='arrow-circle-right'
                     size='2x'
@@ -61,4 +63,4 @@ class Signup extends Component {
     )
   }
 }
-export default Signup;
+export default Signup2;

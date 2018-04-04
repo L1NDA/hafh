@@ -4,7 +4,7 @@ import './App.css';
 import Homepage from './Homepage.js';
 import Timeline from './Timeline.js';
 import Signup from './Signup.js';
-// import Signup2 from './Signup2.js';
+import Signup2 from './Signup2.js';
 import {
   BrowserRouter as Router,
   Route,
