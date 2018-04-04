@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import ReactDOM from 'react-dom'
 import './App.css';
 import Homepage from './Homepage.js';
+import Header from './Header.js';
 import Timeline from './Timeline.js';
 import Signup from './Signup.js';
 import {
@@ -38,6 +39,7 @@ class App extends Component {
 
     return (
       <div className="homepage">
+        <Header/>
         <Router>
           <Switch>
             <Route path="/" exact component={Homepage}/>
