@@ -18,8 +18,8 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <img src={logo} class="logo"/>
-        <div class="buttons-container">
+        <img src={logo} className="logo"/>
+        <div className="buttons-container">
           <HeaderButton text={this.props.button1}/>
           <HeaderButton text={this.props.button2}/>
         </div>

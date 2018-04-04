@@ -23,13 +23,66 @@ html {
 }
 
 .post {
-  background-color: orange;
+  background-color: #8fbdbb;
   height: 250px;
   width: 900px;
   margin: 50px 0;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .timeline-content {
   padding: 50px 0;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 900px;
+}
+
+.search-bar > div {
+  margin: 0 15px;
+}
+
+.search {
+  flex-grow: 1;
+  border-radius: 4px;
+  height: 35px;
+  border: none;
+  font-size: 14px;
+  padding: 0 15px;
+}
+
+.search::placeholder {
+  color: #aaa;
+}
+
+.timeline-select {
+  width: 150px;
+  font-size: 14px;
+}
+
+.postButton {
+  width: 150px;
+  height: 35px;
+  background-color: gray;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: white
+}
+
+.Home {
+  background-color: #8fbdbb;
+  cursor: pointer;
+}
+
+.Food {
+  background-color: #f5a99b;
+  cursor: pointer;
 }

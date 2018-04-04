@@ -11,17 +11,29 @@ import {
 } from 'react-router-dom';
 
 import FontAwesome from "react-fontawesome";
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
-
+      selectedOption: '',
     }
   }
 
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    // console.log(`Selected: ${selectedOption.label}`);
+  }
+
   render () {
-    console.log(React.version)
+    const { selectedOption } = this.state;
+    const value = selectedOption && selectedOption.value;
+    var btnClass = classNames('postButton');
+    if (selectedOption) {
+      btnClass += ` ${selectedOption.label}`
+    }
 
     return (
       <Router>
@@ -29,13 +41,23 @@ class Timeline extends Component {
           <div className="timeline">
             <Header button1="PROFILE" button2="LOG OUT"/>
             <div className="timeline-content">
-              <div class="search-bar">
-                <div class="type"></div>
-                
+              <div className="search-bar">
+                <input type="text" placeholder="Make a post!" className="search"/>
+                <Select
+                  className="timeline-select"
+                  name="form-field-name"
+                  value={value}
+                  onChange={this.handleChange}
+                  options={[
+                    { value: 'one', label: 'Home' },
+                    { value: 'two', label: 'Food' },
+                  ]}
+                />
+              <div className={btnClass}>POST</div>
               </div>
-              <Post/>
-              <Post/>
-              <Post/>
+              <Post type={selectedOption ? selectedOption.label : null}/>
+              <Post type={selectedOption ? selectedOption.label : null}/>
+              <Post type={selectedOption ? selectedOption.label : null}/>
             </div>
           </div>
         </switch>

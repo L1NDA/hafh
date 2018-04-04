@@ -22,7 +22,8 @@ class Post extends Component {
   render () {
 
     return (
-      <div className="post"></div>
+      <div className="post">
+      </div>
     )
   }
 }
