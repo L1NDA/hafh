@@ -42,6 +42,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Homepage}/>
             <Route path="/timeline" component={Timeline}/>
+            <Route path="/signup" exact component={Signup}/>
           </Switch>
         </Router>
       </div>
