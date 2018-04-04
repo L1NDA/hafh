@@ -31,6 +31,14 @@ html, body {
   justify-content: flex-start;
 }
 
+.header-button {
+  border: 2px solid black;
+  color: black;
+  border-radius: 50px;
+  width: 100px;
+  height: 30px;
+}
+
 
 /* ------------------- OLD ------------------- */
 

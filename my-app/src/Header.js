@@ -8,6 +8,7 @@ import {
   Link,
   Switch
 } from 'react-router-dom'
+import logo from "./img/heart.png";
 import "./css/react-grid-layout-styles.css";
 import "./css/react-resizable-styles.css";
 import ScrollManager from 'window-scroll-manager'
@@ -18,7 +19,7 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <img src="./img/icon.png"/>
+        <img src={logo} class="logo"/>
         <HeaderButton text="log in"/>
         <HeaderButton text="sign up"/>
       </div>
