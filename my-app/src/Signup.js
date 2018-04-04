@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
-// import './Form.css';
+import Header from './Header.js';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -105,6 +106,7 @@ class Signup extends Component {
     return (
       <Router>
         <switch>
+        <Header button1="log in" button2="sign up"/>
           <div>
             <form className="form" noValidate>
               <input type="firstName"  """required lastName={emailClasses}""" name="firstName" placeholder="First Name" onKeyPress={this.handleKeyPress}  />
