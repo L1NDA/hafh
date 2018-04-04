@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import FontAwesome from "react-fontawesome";
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
 import Header from './Header.js';
+
 import "./css/signup.css";
+import 'react-datepicker/dist/react-datepicker.css';
+import faStyles from 'font-awesome/css/font-awesome.css'
+
+
 import {
   BrowserRouter as Router,
   Route,
@@ -22,10 +30,27 @@ class Signup extends Component {
       passwordValid: false,
       formValid: false,
       emailOutline: false,
-      passOutline: false
-    }
+      passOutline: false,
+      country: '', 
+      region: '',
+      immigrationdate: moment()
+    };
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
+  selectCountry (val) {
+    this.setState({ country: val });
+  }
+
+  selectRegion (val) {
+    this.setState({ region: val });
+  }
   // handleKeyPress = (e) => {
   //   const name = e.target.name;
   //   const value = e.target.value;
@@ -84,6 +109,8 @@ class Signup extends Component {
   }
 
   render () {
+    const { country, region } = this.state;
+
     var emailClasses = classNames ({
       formColor: this.state.emailOutline,
       formControl: true
@@ -115,12 +142,31 @@ class Signup extends Component {
               <input type="email" required className={emailClasses} name="email" placeholder="Email" onKeyPress={this.handleKeyPress}  />
               <input type="password" className={passClasses} name="password" placeholder="Password" onKeyPress={this.handleKeyPress}  />
               <input type="password" classname="textinput" name="lastName" placeholder="Retype password" />
+              <CountryDropdown
+                value={country}
+                onChange={(val) => this.selectCountry(val)} />
+              <RegionDropdown
+                country={country}
+                value={region}
+                onChange={(val) => this.selectRegion(val)} />
+                        <DatePicker
+                          placeholderText="When did you come to America?"
+                          showYearDropdown
+                          dateFormatCalendar="MMMM"
+                          scrollableYearDropdown
+                          maxDate={moment()}
+                          yearDropdownItemNumber={20}
+                          selected={this.state.startDate}
+                          onChange={this.handleChange}
+                        />
               <a href="/admin" className={submitClasses}>LOGIN</a>
             </form>
           </div>
+
           <FontAwesome
             name='arrow-alt-circle-right'
             size='2x'
+            cssModule={faStyles}
             style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
           />
         </switch>
@@ -128,17 +174,7 @@ class Signup extends Component {
     )
   }
 }
-{/* <Select
-placeholder = "Where are you from?"
-className="origin-select"
-name="form-field-name"
-value={value}
-onChange={this.handleChange}
-options={[
-    {value: 'one', label: 'US' },
-    {value: 'two', label: 'China' },
-]}
-/>
+/*
 <div>
 <Select
     placeholder = "Gender"
@@ -163,7 +199,7 @@ options={[
 name='arrow-alt-circle-right'
 size='2x'
 style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
-/> */}
+/> }*/
 export default Signup;
 
 // <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
