@@ -21,8 +21,11 @@ html, body {
   width: 100vw;
   background-color: white;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   top: 0;
-  height: 100px;
+  height: 75px;
+  padding: 0 25px;
 }
 
 .homepage {
@@ -31,12 +34,29 @@ html, body {
   justify-content: flex-start;
 }
 
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .header-button {
+  margin: 10px;
   border: 2px solid black;
   color: black;
   border-radius: 50px;
-  width: 100px;
-  height: 30px;
+  width: 120px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-button:hover {
+  background-color: pink;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 

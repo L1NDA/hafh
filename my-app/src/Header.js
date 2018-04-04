@@ -20,8 +20,10 @@ class Header extends Component {
     return (
       <div className="header">
         <img src={logo} class="logo"/>
-        <HeaderButton text="log in"/>
-        <HeaderButton text="sign up"/>
+        <div class="buttons-container">
+          <HeaderButton text={this.props.button1}/>
+          <HeaderButton text={this.props.button2}/>
+        </div>
       </div>
     );
   }
