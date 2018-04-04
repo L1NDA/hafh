@@ -15,4 +15,21 @@ html {
   background-color: lightgray;
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.post {
+  background-color: orange;
+  height: 250px;
+  width: 900px;
+  margin: 50px 0;
+  border-radius: 15px;
+}
+
+.timeline-content {
+  padding: 50px 0;
 }
