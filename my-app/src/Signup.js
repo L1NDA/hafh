@@ -3,6 +3,7 @@ import FontAwesome from "react-fontawesome";
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
 import Header from './Header.js';
+import "./css/signup.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -109,11 +110,11 @@ class Signup extends Component {
         <Header button1="log in" button2="sign up"/>
           <div>
             <form className="form" noValidate>
-              <input type = "text" name = "firstname" placeholder="First Name"/>
-              <input type = "text" name = "last name" placeholder="Last Name"/>
+              <input type = "text" classname="textinput"  name= "firstname" placeholder="First Name"/>
+              <input type = "text" classname="textinput" name = "last name" placeholder="Last Name"/>
               <input type="email" required className={emailClasses} name="email" placeholder="Email" onKeyPress={this.handleKeyPress}  />
               <input type="password" className={passClasses} name="password" placeholder="Password" onKeyPress={this.handleKeyPress}  />
-              <input type="password" name="lastName" placeholder="Retype password" />
+              <input type="password" classname="textinput" name="lastName" placeholder="Retype password" />
               <a href="/admin" className={submitClasses}>LOGIN</a>
             </form>
           </div>
@@ -127,7 +128,42 @@ class Signup extends Component {
     )
   }
 }
+{/* <Select
+placeholder = "Where are you from?"
+className="origin-select"
+name="form-field-name"
+value={value}
+onChange={this.handleChange}
+options={[
+    {value: 'one', label: 'US' },
+    {value: 'two', label: 'China' },
+]}
+/>
+<div>
+<Select
+    placeholder = "Gender"
+    className="gender-select"
+    name="form-field-name"
+    value={value}
+    onChange={this.handleChange}
+    options={[
+        { value: 'one', label: 'Female' },
+        { value: 'two', label: 'Male' },
+        { value: 'three', label: 'Prefer not to say' },
+    ]}
+/>
+<form>
+    <input type='text' name ='age' placeholder="Age"/>
+    <input type='text' name ='year' placeholder="What year did you move to the US?"/>
+    <input type='text' name ='bio' placeholder="Tell us about yourself?"/>
+</form>
+</div>
 
+<FontAwesome
+name='arrow-alt-circle-right'
+size='2x'
+style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+/> */}
 export default Signup;
 
 // <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
