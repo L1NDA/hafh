@@ -69,16 +69,6 @@ html {
   color: white
 }
 
-.Home {
-  background-color: #8fbdbb;
-  cursor: pointer;
-}
-
-.Food {
-  background-color: #f5a99b;
-  cursor: pointer;
-}
-
 /* -------- POST -------- */
 
 .post {
@@ -166,4 +156,14 @@ html {
 
 .post-reply {
   border-radius: 25px;
+}
+
+.Home {
+  background-color: #8fbdbb;
+  cursor: pointer;
+}
+
+.Food {
+  background-color: #f5a99b;
+  cursor: pointer;
 }

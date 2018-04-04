@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FormErrors } from './FormErrors';
 import classNames from "classnames";
 import "./css/timeline.css";
 import Header from './Header.js';
@@ -18,21 +17,63 @@ class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedOption: '',
+      selectedOption: ["Home"],
+      option: "",
+      postImg: ["./img/stock.jpeg"],
+      myImg: "stock2",
+      name: ["Sara Zandvakilli"],
+      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?"],
+      counter: 1,
+      inputValue: "",
     }
   }
 
-  handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    // console.log(`Selected: ${selectedOption.label}`);
+  handleChange = (option) => {
+    this.setState({ option: option });
+  }
+
+  _handleClick = () => {
+    console.log("clicked");
+
+    var Option = [`${this.state.option.label}`]
+    var Name = [`Manny Xiao`]
+    var Post = [`${this.state.inputValue}`]
+    var Img = ["./img/stock2.jpg"]
+
+    var joinedOption = Option.concat(this.state.selectedOption);
+    var joinedName = Name.concat(this.state.name);
+    var joinedPost = Post.concat(this.state.post);
+    var count = this.state.counter + 1;
+    var img = Img.concat(this.state.postImg);
+
+    this.setState({
+      selectedOption: joinedOption,
+      name: joinedName,
+      post: joinedPost,
+      counter: count,
+      postImg: img
+    });
+  }
+
+  createPost = () => {
+    var posts = []
+    for (var i = 0; i < this.state.counter; i++) {
+      posts.push(<Post img={this.state.postImg[i]} type={this.state.selectedOption[i]} name={this.state.name[i]} post={this.state.post[i]} key={i}/>)
+    }
+    return posts
+  }
+
+  updateInputValue = (evt) => {
+    this.setState({
+      inputValue: evt.target.value
+    });
   }
 
   render () {
-    const { selectedOption } = this.state;
-    const value = selectedOption && selectedOption.value;
+    const value = this.state.option && this.state.option.value;
     var btnClass = classNames('postButton');
-    if (selectedOption) {
-      btnClass += ` ${selectedOption.label}`
+    if (this.state.option) {
+      btnClass += ` ${this.state.option.label}`
     }
 
     return (
@@ -42,7 +83,7 @@ class Timeline extends Component {
             <Header button1="PROFILE" button2="LOG OUT"/>
             <div className="timeline-content">
               <div className="search-bar">
-                <input type="text" placeholder="Make a post!" className="search"/>
+                <input type="text" placeholder="Make a post!" className="search" onChange={evt => this.updateInputValue(evt)}/>
                 <Select
                   className="timeline-select"
                   name="form-field-name"
@@ -54,11 +95,9 @@ class Timeline extends Component {
                     { value: 'two', label: 'Food' },
                   ]}
                 />
-              <div className={btnClass}>POST</div>
+              <div className={btnClass} onClick={this._handleClick}>POST</div>
               </div>
-              <Post type={selectedOption ? selectedOption.label : null}/>
-              <Post type={selectedOption ? selectedOption.label : null}/>
-              <Post type={selectedOption ? selectedOption.label : null}/>
+              {this.createPost()}
             </div>
           </div>
         </switch>
