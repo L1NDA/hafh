@@ -22,14 +22,6 @@ html {
   flex-direction: column;
 }
 
-.post {
-  background-color: #8fbdbb;
-  height: 250px;
-  width: 900px;
-  margin: 50px 0;
-  border-radius: 10px;
-}
-
 .timeline-content {
   padding: 50px 0;
 }
@@ -85,4 +77,93 @@ html {
 .Food {
   background-color: #f5a99b;
   cursor: pointer;
+}
+
+/* -------- POST -------- */
+
+.post {
+  background-color: #8fbdbb;
+  height: 300px;
+  width: 900px;
+  margin: 50px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-pic {
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-right: 25px;
+  flex-shrink: 0;
+}
+
+.post-og {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 50px 30px 50px;
+}
+
+.post-text > div {
+  margin: 10px 0;
+}
+
+.post-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.housing-label {
+  background-color: white;
+  width: 150px;
+  height: 30px;
+  color: gray;
+  border-radius: 50px;
+  font-size: 12px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  margin-bottom: -2%;
+}
+
+.post-line {
+  height: 4px;
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  width: 100%;
+}
+
+.post-response {
+  margin: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.post-response > input {
+  margin: 0 25px;
+}
+
+.post-response-pic {
+  height: 50px;
+  width: 50px;
+  background-color: gray;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.post-button {
+  font-size: 10px;
+  width: 100px;
+  height: 30px;
+}
+
+.post-reply {
+  border-radius: 25px;
 }

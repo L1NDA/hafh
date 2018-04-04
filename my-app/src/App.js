@@ -4,7 +4,7 @@ import './App.css';
 import Homepage from './Homepage.js';
 import Timeline from './Timeline.js';
 import Signup from './Signup.js';
-import Signup2 from './Signup2.js';
+// import Signup2 from './Signup2.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -43,7 +43,7 @@ class App extends Component {
             <Route path="/" exact component={Homepage}/>
             <Route path="/timeline" component={Timeline}/>
             <Route path="/signup" exact component={Signup}/>
-            <Route path="/signup2" exact component={Signup2}/>
+            
           </Switch>
         </Router>
       </div>

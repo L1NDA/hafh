@@ -59,8 +59,10 @@ html, body {
 }
 
 .header-button:hover {
-  background-color: pink;
-  transition: all 0.5s;
+  background-color: #f5a99b;
+  border-color: #f5a99b;
+  color: white;
+  transition: background-color 0.5s, border-color 0.2s;
   cursor: pointer;
 }
 

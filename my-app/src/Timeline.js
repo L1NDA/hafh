@@ -47,6 +47,7 @@ class Timeline extends Component {
                   className="timeline-select"
                   name="form-field-name"
                   value={value}
+                  placeholder="Category*"
                   onChange={this.handleChange}
                   options={[
                     { value: 'one', label: 'Home' },
