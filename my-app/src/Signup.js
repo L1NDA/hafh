@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from "react-fontawesome";
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
 import Header from './Header.js';
@@ -108,15 +109,21 @@ class Signup extends Component {
         <Header button1="log in" button2="sign up"/>
           <div>
             <form className="form" noValidate>
-              <input type="firstName"  required lastName={emailClasses} name="firstName" placeholder="First Name" onKeyPress={this.handleKeyPress}  />
-              <input type="lastName" required className={emailClasses} name="lastName" placeholder="Last Name" onKeyPress={this.handleKeyPress}  />
+              <input type = "text" name = "firstname" placeholder="First Name"/>
+              <input type = "text" name = "last name" placeholder="Last Name"/>
               <input type="email" required className={emailClasses} name="email" placeholder="Email" onKeyPress={this.handleKeyPress}  />
               <input type="password" className={passClasses} name="password" placeholder="Password" onKeyPress={this.handleKeyPress}  />
-              <input type="password" className={passClasses} name="password" placeholder="Retype PASSWORD" onKeyPress={this.handleKeyPress}  />
+              <input type="password" name="lastName" placeholder="Retype password" />
               <a href="/admin" className={submitClasses}>LOGIN</a>
             </form>
           </div>
-          <button/>
+          <FontAwesome
+        className='super-crazy-colors'
+        name='rocket'
+        size='2x'
+        spin
+        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+      />
         </switch>
       </Router>
     )
