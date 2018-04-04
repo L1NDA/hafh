@@ -108,11 +108,15 @@ class Signup extends Component {
         <Header button1="log in" button2="sign up"/>
           <div>
             <form className="form" noValidate>
-              <input type="email" required className={emailClasses} name="email" placeholder="EMAIL" onKeyPress={this.handleKeyPress}  />
-              <input type="password" className={passClasses} name="password" placeholder="PASSWORD" onKeyPress={this.handleKeyPress}  />
+              <input type="firstName"  """required lastName={emailClasses}""" name="firstName" placeholder="First Name" onKeyPress={this.handleKeyPress}  />
+              <input type="lastName" """required className={emailClasses}""" name="lastName" placeholder="Last Name" onKeyPress={this.handleKeyPress}  />
+              <input type="email" required className={emailClasses} name="email" placeholder="Email" onKeyPress={this.handleKeyPress}  />
+              <input type="password" className={passClasses} name="password" placeholder="Password" onKeyPress={this.handleKeyPress}  />
+              <input type="password" className={passClasses} name="password" placeholder="Retype PASSWORD" onKeyPress={this.handleKeyPress}  />
               <a href="/admin" className={submitClasses}>LOGIN</a>
             </form>
           </div>
+          <button><button/>
         </switch>
       </Router>
     )
