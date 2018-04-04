@@ -11,7 +11,6 @@ import {
 import logo from "./img/heart.png";
 import "./css/react-grid-layout-styles.css";
 import "./css/react-resizable-styles.css";
-import ScrollManager from 'window-scroll-manager'
 
 class Header extends Component {
 

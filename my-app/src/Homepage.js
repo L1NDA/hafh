@@ -9,7 +9,7 @@ import {
   Switch
 } from 'react-router-dom';
 
-class Signup extends Component {
+class Homepage extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -119,7 +119,7 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default Homepage;
 
 // <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
 // <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>

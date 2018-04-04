@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
-import "./admin.css";
-import Widget from "./Widgets.jsx";
-import Twitter from "./Twitter.jsx";
+import "./css/timeline.css";
+import Header from './Header.js';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
-import ReactGridLayout from "react-grid-layout";
 
 import FontAwesome from "react-fontawesome";
 
@@ -24,7 +22,13 @@ class Timeline extends Component {
   render () {
 
     return (
-      <div></div>
+      <Router>
+        <switch>
+          <div class="timeline">
+            <Header button1="PROFILE" button2="LOG OUT"/>
+          </div>
+        </switch>
+      </Router>
     )
   }
 }
