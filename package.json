@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/L1NDA/hafh#readme",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "react-country-region-selector": "^1.2.3",
     "react-datepicker": "^1.4.0"
   }

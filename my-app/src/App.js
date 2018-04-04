@@ -19,30 +19,18 @@ class App extends Component {
 
   constructor (props) {
     super(props);
-    const sm = new ScrollManager()
-    this.state = {
-      showPopup: false
-    }
-  }
-    togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
 
   }
 
   render() {
-    window.addEventListener('window-scroll', function(e) {
-      console.log('Scroll position is: ' + e.detail.scrollPosition);
-    });
 
     return (
       <div className="homepage">
         <Router>
           <Switch>
-            <Route path="/" exact component={Homepage}/>
-            <Route path="/timeline" component={Timeline}/>
-            <Route path="/signup" exact component={Signup}/>
+            <Route path="/hafh/" exact component={Homepage}/>
+            <Route path="/hafh/timeline" component={Timeline}/>
+            <Route path="/hafh/signup" exact component={Signup}/>
 
           </Switch>
         </Router>
