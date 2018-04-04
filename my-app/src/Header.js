@@ -18,7 +18,7 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <img src={logo} className="logo"/>
+        <a href="/"><img src={logo} className="logo"/></a>
         <div className="buttons-container">
           <HeaderButton text={this.props.button1}/>
           <a href="/signup" className="href"><HeaderButton text={this.props.button2}/></a>

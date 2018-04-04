@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/L1NDA/hafh/issues"
   },
-  "homepage": "https://github.com/L1NDA/hafh#readme"
+  "homepage": "https://github.com/L1NDA/hafh#readme",
+  "dependencies": {
+    "react-country-region-selector": "^1.2.3",
+    "react-datepicker": "^1.4.0"
+  }
 }

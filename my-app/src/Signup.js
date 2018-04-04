@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import FontAwesome from "react-fontawesome";
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import classNames from "classnames";
 import Header from './Header.js';
+
 import "./css/signup.css";
+import 'react-datepicker/dist/react-datepicker.css';
+
+
 import {
   BrowserRouter as Router,
   Route,
@@ -20,11 +28,30 @@ class Signup extends Component {
       passwordValid: false,
       formValid: false,
       emailOutline: false,
-      passOutline: false
-    }
+      passOutline: false,
+      country: '',
+      region: '',
+      immigrationdate: moment()
+    };
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
+  }
+  selectCountry (val) {
+    this.setState({ country: val });
+  }
+
+  selectRegion (val) {
+    this.setState({ region: val });
   }
 
   render () {
+
+    const { country, region } = this.state;
 
     return (
       <Router>
@@ -32,8 +59,8 @@ class Signup extends Component {
         <Header button1="log in" button2="sign up"/>
           <div className="signup">
             <form className="signup-form" noValidate>
-              <div className="signup-title">REGISTER</div>
               <div className="form-inner">
+              <div className="signup-title">REGISTER</div>
                 <div className="row">
                   <input type="text" className="signup-formControl"  name="firstName" placeholder="First Name"/>
                   <input type="text" className="signup-formControl" name="lastName" placeholder="Last Name"/>
@@ -44,8 +71,32 @@ class Signup extends Component {
                   <input type="password" className="signup-formControl" name="password" placeholder="Password"/>
                   <input type="password" className="signup-formControl" name="passwordRedo" placeholder="Retype Password" />
                 </div>
-                <input type="text" className="signup-formControl nationality"  name="nationality" placeholder="Nationality"/>
-                <a href="/signup2" className="signup-btn">
+                <div className="row">
+                  <CountryDropdown
+                      classes="country"
+                      value={country}
+                      defaultOptionLabel="Where are you from?"
+                      onChange={(val) => this.selectCountry(val)} />
+                  <RegionDropdown
+                    classes="region"
+                    blankOptionLabel="Select Region"
+                    country={country}
+                    value={region}
+                    onChange={(val) => this.selectRegion(val)} />
+                </div>
+
+                <DatePicker
+                  className="signup-formControl datepicker"
+                  placeholderText="When did you come to America?"
+                  showYearDropdown
+                  dateFormatCalendar="MMMM"
+                  scrollableYearDropdown
+                  maxDate={moment()}
+                  yearDropdownItemNumber={20}
+                  selected={this.state.startDate}
+                  onChange={this.handleChange}
+                />
+              <a href="/timeline" className="signup-btn">
                   <FontAwesome
                     name='arrow-circle-right'
                     size='2x'
