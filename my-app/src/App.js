@@ -1,10 +1,9 @@
 import React, { Component }  from 'react';
 import ReactDOM from 'react-dom'
 import './App.css';
-import Form from './Form.js';
-import About from './AboutPage.js'
-// import Home from './Home.js';
-import Admin from './Admin.js';
+import Homepage from './Homepage.js';
+import Timeline from './Timeline.js';
+import Signup from './Signup.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -32,20 +31,6 @@ class App extends Component {
 
   }
 
-  // state = {
-  //   isTop: true,
-  // };
-  //
-  // componentDidMount() {
-  //   document.addEventListener('scroll', () => {
-  //     const isTop = window.scrollY > 5;
-  //     if (isTop !== this.state.isTop) {
-  //         this.setState({ isTop })
-  //         console.log("bot")
-  //     }
-  //   });
-  // }
-
   render() {
     window.addEventListener('window-scroll', function(e) {
       console.log('Scroll position is: ' + e.detail.scrollPosition);
@@ -55,19 +40,10 @@ class App extends Component {
       <div className="homepage">
         <Router>
           <Switch>
-            <Route path="/" exact component={Form}/>
-            <Route path="/admin" component={Admin}/>
+            <Route path="/" exact component={Homepage}/>
+            <Route path="/timeline" component={Timeline}/>
           </Switch>
         </Router>
-        <div className="aboutDiv" onClick={this.togglePopup.bind(this)}>
-        <a href="#">ABOUT</a>
-        {this.state.showPopup ?
-          <About
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
-        </div>
       </div>
     );
   }

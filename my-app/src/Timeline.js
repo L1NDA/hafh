@@ -21,7 +21,7 @@ import FontAwesome from "react-fontawesome";
 // import 'font-awesome/css/font-awesome.css'
 import searchImg from "./img/search.png"
 
-class Admin extends Component {
+class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -119,11 +119,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
-
-// <div className="grid">
-//   <Widget colspan={2} color="green"/>
-//   <Widget />
-// </div>
-
-// <FontAwesome name="rocket" className="searchIcon"/>
+export default Timeline;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
-import Globe from './Globe.js'
 // import './Form.css';
 import {
   BrowserRouter as Router,
@@ -9,10 +8,8 @@ import {
   Link,
   Switch
 } from 'react-router-dom';
-import Admin from "./Admin.js";
-import Logo from "./Logo.js"
 
-class Form extends Component {
+class Signup extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -108,7 +105,6 @@ class Form extends Component {
     return (
       <Router>
         <switch>
-          <Logo/>
           <div>
             <form className="form" noValidate>
               <input type="email" required className={emailClasses} name="email" placeholder="EMAIL" onKeyPress={this.handleKeyPress}  />
@@ -116,16 +112,13 @@ class Form extends Component {
               <a href="/admin" className={submitClasses}>LOGIN</a>
             </form>
           </div>
-          <div className="globe">
-            <Globe />
-          </div>
         </switch>
       </Router>
     )
   }
 }
 
-export default Form;
+export default Signup;
 
 // <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
 // <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
