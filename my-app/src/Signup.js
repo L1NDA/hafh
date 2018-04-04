@@ -118,12 +118,10 @@ class Signup extends Component {
             </form>
           </div>
           <FontAwesome
-        className='super-crazy-colors'
-        name='rocket'
-        size='2x'
-        spin
-        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-      />
+            name='arrow-alt-circle-right'
+            size='2x'
+            style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+          />
         </switch>
       </Router>
     )
