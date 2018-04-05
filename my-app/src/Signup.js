@@ -96,7 +96,7 @@ class Signup extends Component {
                   selected={this.state.startDate}
                   onChange={this.handleChange}
                 />
-              <a href="/#/timeline" className="signup-btn">
+              <a href="https://l1nda.github.io/hafh/#/timeline" className="signup-btn">
                   <FontAwesome
                     name='arrow-circle-right'
                     size='2x'
