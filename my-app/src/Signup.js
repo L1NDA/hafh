@@ -56,7 +56,7 @@ class Signup extends Component {
     return (
       <HashRouter>
         <switch>
-        <Header button1="log in" button2="sign up"/>
+        <Header button1="log in" button2="sign up" link="https://l1nda.github.io/hafh/#/signup"/>
           <div className="signup">
             <form className="signup-form" noValidate>
               <div className="form-inner">

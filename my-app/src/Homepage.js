@@ -42,7 +42,7 @@ class Homepage extends Component {
       <Router>
         <switch>
           <div className="homepage">
-            <Header button1="log in" button2="sign up"/>
+            <Header button1="log in" button2="sign up" link="https://l1nda.github.io/hafh/#/signup"/>
             <div className="title">HOME AWAY<br></br> FROM HOME</div>
             <div className="video-background">
               <div className="video-foreground">
