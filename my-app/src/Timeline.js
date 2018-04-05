@@ -3,6 +3,7 @@ import classNames from "classnames";
 import "./css/timeline.css";
 import Header from './Header.js';
 import Post from './Post.js';
+import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Route,
@@ -77,7 +78,7 @@ class Timeline extends Component {
     }
 
     return (
-      <Router>
+      <HashRouter>
         <switch>
           <div className="timeline">
             <Header button1="PROFILE" button2="LOG OUT"/>
@@ -101,7 +102,7 @@ class Timeline extends Component {
             </div>
           </div>
         </switch>
-      </Router>
+      </HashRouter>
     )
   }
 }

@@ -5,6 +5,7 @@ import Homepage from './Homepage.js';
 import Timeline from './Timeline.js';
 import Signup from './Signup.js';
 import Signup2 from './Signup2.js';
+import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Route,
@@ -26,14 +27,14 @@ class App extends Component {
 
     return (
       <div className="homepage">
-        <Router>
+        <HashRouter>
           <Switch>
-            <Route path="/#" exact component={Homepage}/>
-            <Route path="/#timeline" component={Timeline}/>
-            <Route path="/#signup" exact component={Signup}/>
+            <Route path="/" exact component={Homepage}/>
+            <Route path="/timeline" component={Timeline}/>
+            <Route path="/signup" exact component={Signup}/>
 
           </Switch>
-        </Router>
+        </HashRouter>
       </div>
     );
   }

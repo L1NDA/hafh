@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import classNames from "classnames";
 import Header from './Header.js';
-
+import { HashRouter } from 'react-router-dom';
 import "./css/signup.css";
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -54,7 +54,7 @@ class Signup extends Component {
     const { country, region } = this.state;
 
     return (
-      <Router>
+      <HashRouter>
         <switch>
         <Header button1="log in" button2="sign up"/>
           <div className="signup">
@@ -96,7 +96,7 @@ class Signup extends Component {
                   selected={this.state.startDate}
                   onChange={this.handleChange}
                 />
-              <a href="/timeline" className="signup-btn">
+              <a href="/#/timeline" className="signup-btn">
                   <FontAwesome
                     name='arrow-circle-right'
                     size='2x'
@@ -108,7 +108,7 @@ class Signup extends Component {
             </form>
           </div>
         </switch>
-      </Router>
+      </HashRouter>
     )
   }
 }
