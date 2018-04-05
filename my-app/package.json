@@ -27,7 +27,7 @@
     "three": "^0.89.0",
     "window-scroll-manager": "^0.2.1"
   },
-  "homepage": "https://l1nda.github.io/hafh",
+  "homepage": "https://l1nda.github.io/hafh/#",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
