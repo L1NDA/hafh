@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classNames from "classnames";
-import "./css/categories.css";
-import Header from './Header.js';
+import "./css/info.css";
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -13,7 +12,7 @@ import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
-class Categories extends Component {
+class Info extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -24,17 +23,10 @@ class Categories extends Component {
   render () {
 
     return (
-      <HashRouter>
-        <switch>
-          <div className="categories">
-            <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
-            <div className="categories-box">
-            </div>
+          <div className="info-box">
           </div>
-        </switch>
-      </HashRouter>
     )
   }
 }
 
-export default Categories;
+export default Info;
