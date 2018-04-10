@@ -32,7 +32,6 @@ class App extends Component {
             <Route path="/" exact component={Homepage}/>
             <Route path="/timeline" component={Timeline}/>
             <Route path="/signup" exact component={Signup}/>
-
           </Switch>
         </HashRouter>
       </div>
