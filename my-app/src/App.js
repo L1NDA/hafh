@@ -5,7 +5,6 @@ import Homepage from './Homepage.js';
 import Timeline from './Timeline.js';
 import Signup from './Signup.js';
 import Categories from './Categories.js';
-import Signup2 from './Signup2.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
