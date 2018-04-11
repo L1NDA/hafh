@@ -27,14 +27,14 @@ class Info extends Component {
           <div className="info-box">
               <div className="title">What to Expect When Looking for Housing</div>
               <div className="body">
-                  Several factors are typically considered when people look for housing, including <b>cost</b> and <b>location</b>.
+                  Several factors are typically considered when people look for housing, including <b className="dynamic-text"> cost and location</b>.
                   <br/><br/>
                   <form>
-                      The average cost to rent a <input type="text" placeholder="1"></input>-bedroom
-                      , <input type="text" placeholder="1"></input>-bathroom listing in Boston is <b>$___</b> per month.
+                      The average cost to rent a <input type="text" placeholder="1" className="bedroom"></input>-bedroom
+                      , <input type="text" placeholder="1" className="bathroom"></input>-bathroom listing in Boston is <b className="dynamic-text">$___</b> per month.
                       You may find that the most affordable option is to share your living space or rent out of a larger home.
                   </form><br/>
-                  Immigrants in the <b>Chinese</b> community frequently choose to live in <b>Quincy, Malden, Acton, Newton, and Lexington</b>.
+                  Immigrants in the <b className="dynamic-text">Chinese</b> community frequently choose to live in <b className="dynamic-text">Quincy, Malden, Acton, Newton, and Lexington</b>.
                   <br/><br/>
                   <Iframe
                       url="https://www.google.com/maps/d/embed?mid=1_XFwbb5WOTNpAU_zk_unEkuUM9nOLL8T"
