@@ -12,6 +12,7 @@ import {
 import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import Info2 from './Info2.js';
 
 class Categories extends Component {
   constructor (props) {
@@ -29,6 +30,7 @@ class Categories extends Component {
           <div className="categories">
             <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
             <div className="categories-box">
+              <Info2 category="housing"/>
             </div>
           </div>
         </switch>
