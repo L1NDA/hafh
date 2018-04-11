@@ -24,6 +24,7 @@ class Info extends Component {
 
     return (
           <div className="info-box">
+            
           </div>
     )
   }
