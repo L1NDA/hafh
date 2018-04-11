@@ -44,15 +44,7 @@ b, strong {
   color: #f5a99b;
 }
 
-.bedroom {
-  width: 25px;
-  background-color: #f5a99b;
-  border: none;
-  border-radius: 4px;
-  height: 25px;
-}
-
-.bathroom {
+input {
   width: 25px;
   background-color: #f5a99b;
   border: none;
