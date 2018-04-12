@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Iframe from 'react-iframe'
 import classNames from "classnames";
 import "./css/info.css";
+import Header from './Header.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,

@@ -42,6 +42,7 @@ class Timeline extends Component {
       selectValueCity: "Boston",
       goodRating: [],
       badRating: [],
+      sorting: "Default",
     }
   };
 
@@ -66,6 +67,87 @@ class Timeline extends Component {
 
   handleChange = (option) => {
     this.setState({ option: option });
+  }
+
+  handleChangeSort = (option) => {
+    if (option.label === "Highest Rated") {
+      let totalRatingsArray = [];
+      let length = this.state.goodRating.length;
+
+      for (var i = 0; i < length; i++) {
+        let totalRatings = this.state.goodRating[i] - this.state.badRating[i];
+        let tuple = [totalRatings, i];
+        totalRatingsArray.push(tuple);
+      };
+
+      let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
+      console.log("Highest Rated", sortedRatings);
+      this.sortPostsRatings(sortedRatings);
+    } else {
+      let totalRatingsArray = [];
+      let length = this.state.goodRating.length;
+
+      for (var i = 0; i < length; i++) {
+        let totalRatings = this.state.goodRating[i] + this.state.badRating[i]
+        let tuple = [totalRatings, i];
+        totalRatingsArray.push(tuple);
+      };
+
+      let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
+      console.log("sortedRatings", sortedRatings);
+      this.sortPostsRatings(sortedRatings);
+    }
+    this.setState({ sorting: option });
+
+  }
+
+  sortPostsRatings = (sortedRatings) => {
+    console.log("new var", sortedRatings);
+
+
+    let sortedArray = [];
+
+    let OptionArray = []
+    let NameArray = []
+    let PostArray = []
+    let ImgArray = []
+    let GoodArray = [];
+    let BadArray = [];
+    let CityArray = [];
+
+    let length = this.state.goodRating.length
+    console.log("length", this.state.goodRating.length);
+
+    for (var i = 0; i < length; i++) {
+      var Option = `${this.state.selectedOption[sortedRatings[i][1]]}`;
+      var Name = `${this.state.name[sortedRatings[i][1]]}`;
+      var Post = `${this.state.post[sortedRatings[i][1]]}`;
+      var Img = `${this.state.postImg[sortedRatings[i][1]]}`;
+      var Good = `${this.state.goodRating[sortedRatings[i][1]]}`;
+      var Bad = `${this.state.badRating[sortedRatings[i][1]]}`;
+      var City = `${this.state.postLocation[sortedRatings[i][1]]}`;
+
+      OptionArray.push(Option);
+      NameArray.push(Name);
+      PostArray.push(Post);
+      ImgArray.push(Img);
+      GoodArray.push(Good);
+      BadArray.push(Bad);
+      CityArray.push(City);
+    }
+
+    this.setState({
+      selectedOption: OptionArray,
+      name: NameArray,
+      post: PostArray,
+      postImg: ImgArray,
+      goodRating: GoodArray,
+      badRating: BadArray,
+      postLocation: CityArray,
+    }, function() {
+      console.log(this.state);
+      this.createPost();
+    });
   }
 
   handleSelectChange = (value) => {
@@ -124,10 +206,9 @@ class Timeline extends Component {
     console.log("selectValue", splited);
 
     for (var i = 0; i < this.state.counter; i++) {
-      console.log("option", this.state.selectedOption[i]);
-      console.log("postlocation", this.state.postLocation);
-      console.log("postlocation[i]", this.state.postLocation[i]);
-      console.log("selected city", this.state.selectValueCity);
+      console.log("create post good", this.state.goodRating[i]);
+      console.log("create post bad", this.state.badRating[i]);
+      console.log("create post name", this.state.name[i]);
       if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
         posts.push(<Post
           img={this.state.postImg[i]}
@@ -141,15 +222,6 @@ class Timeline extends Component {
       }
     }
     return posts
-  }
-
-  sortPostsRatings = () => {
-    let totalRatingsArray = [];
-    for (var i; i < goodRating.length; i++) {
-      let totalRatings = (this.state.goodRating[i] - this.state.badRating[i], i);
-      totalRatingsArray.push(totalRatings);
-    }
-    console.log(totalRatingsArray);
   }
 
   updateInputValue = (evt) => {
@@ -197,8 +269,8 @@ class Timeline extends Component {
               </div>
               <div className="timeline-title">YOUR FEED</div>
               <div className="search-bar-2">
-                <div class="city-wrapper">
-                  <div class="city-title">Your current city:</div>
+                <div className="city-wrapper">
+                  <div className="city-title">Your current city:</div>
                   <VirtualizedSelect ref="citySelect"
                     className="timeline-multiselect"
           					options={options}
@@ -213,6 +285,17 @@ class Timeline extends Component {
           				/>
                 </div>
 
+                <Select
+                  className="timeline-select"
+                  name="form-field-name"
+                  value={this.state.sorting}
+                  placeholder="Sort By"
+                  onChange={this.handleChangeSort}
+                  options={[
+                    { value: 'two', label: 'Highest Rated' },
+                    { value: 'three', label: 'Most Popular' },
+                  ]}
+                />
                 <Select
                   className="timeline-multiselect"
         					closeOnSelect={false}

@@ -22,8 +22,8 @@ class Post extends Component {
   }
 
   componentWillMount = () => {
-    let good = this.props.good
-    let bad = this.props.bad
+    let good = this.props.good;
+    let bad = this.props.bad;
 
     this.setState({
       goodRating: good,
@@ -31,8 +31,19 @@ class Post extends Component {
     })
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    let good = nextProps.good;
+    let bad = nextProps.bad;
+
+    this.setState({
+      goodRating: good,
+      badRating: bad
+    })
+  }
+
+
   _handleclickTop = () => {
-    let good = this.state.goodRating + 1;
+    let good = parseInt(this.state.goodRating) + 1;
 
     this.setState({
       goodRating: good,
@@ -40,7 +51,7 @@ class Post extends Component {
   }
 
   _handleclickBottom = () => {
-    let bad = this.state.badRating + 1;
+    let bad = parseInt(this.state.badRating) + 1;
 
     this.setState({
       badRating: bad,
