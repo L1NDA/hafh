@@ -70,34 +70,36 @@ class Timeline extends Component {
   }
 
   handleChangeSort = (option) => {
-    if (option.label === "Highest Rated") {
-      let totalRatingsArray = [];
-      let length = this.state.goodRating.length;
+    if (option) {
+      if (option.label === "Highest Rated") {
+        let totalRatingsArray = [];
+        let length = this.state.goodRating.length;
 
-      for (var i = 0; i < length; i++) {
-        let totalRatings = this.state.goodRating[i] - this.state.badRating[i];
-        let tuple = [totalRatings, i];
-        totalRatingsArray.push(tuple);
-      };
+        for (var i = 0; i < length; i++) {
+          let totalRatings = this.state.goodRating[i] - this.state.badRating[i];
+          let tuple = [totalRatings, i];
+          totalRatingsArray.push(tuple);
+        };
 
-      let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
-      console.log("Highest Rated", sortedRatings);
-      this.sortPostsRatings(sortedRatings);
-    } else {
-      let totalRatingsArray = [];
-      let length = this.state.goodRating.length;
+        let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
+        console.log("Highest Rated", sortedRatings);
+        this.sortPostsRatings(sortedRatings);
+      } else {
+        let totalRatingsArray = [];
+        let length = this.state.goodRating.length;
 
-      for (var i = 0; i < length; i++) {
-        let totalRatings = this.state.goodRating[i] + this.state.badRating[i]
-        let tuple = [totalRatings, i];
-        totalRatingsArray.push(tuple);
-      };
+        for (var i = 0; i < length; i++) {
+          let totalRatings = this.state.goodRating[i] + this.state.badRating[i]
+          let tuple = [totalRatings, i];
+          totalRatingsArray.push(tuple);
+        };
 
-      let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
-      console.log("sortedRatings", sortedRatings);
-      this.sortPostsRatings(sortedRatings);
+        let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
+        console.log("sortedRatings", sortedRatings);
+        this.sortPostsRatings(sortedRatings);
+      }
+      this.setState({ sorting: option });
     }
-    this.setState({ sorting: option });
 
   }
 
