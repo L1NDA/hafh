@@ -50,22 +50,22 @@ html {
 }
 
 #Food {
-  background-image: url("../img/food.jpg");
+  background-image: url("food.jpg");
   background-size: cover;
 }
 
 #Housing {
-  background-image: url("../img/home.jpg");
+  background-image: url("home.jpg");
   background-size: cover;
 }
 
 #Legal {
-  background-image: url("../img/legal.jpg");
+  background-image: url("legal.jpg");
   background-size: cover;
 }
 
 #Education {
-  background-image: url("../img/education.jpg");
+  background-image: url("education.jpg");
   background-size: cover;
 }
 
