@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from "classnames";
 import "./css/categories.css";
 import Header from './Header.js';
+// import ImageBox from './ImageBox.js'
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -12,15 +13,29 @@ import {
 import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import Info2 from './Info2.js';
+//import Info2 from './Info2.js';
+import ImageBox from "./ImageBox.js";
 
 class Categories extends Component {
   constructor (props) {
     super(props);
     this.state = {
-
+       CategoryName: ["Food", "Housing", "Legal", "Education"],
+       GridImg: ["./img/food.jpg","./img/home.jpg", "./img/legal.jpg", "./img/education.jpg" ],
+       counter: 4
     }
   }
+  createImg = () => {
+    var box = []
+    for (var i = 0; i < this.state.counter; i++) {
+      // console.log
+      box.push(<ImageBox GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
+    }
+    return box
+  }
+
+
+
 
   render () {
 
@@ -30,7 +45,8 @@ class Categories extends Component {
           <div className="categories">
             <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
             <div className="categories-box">
-              <Info2 category="housing"/>
+              {/* <Info2 category="housing"/> */}
+              {this.createImg()}
             </div>
           </div>
         </switch>

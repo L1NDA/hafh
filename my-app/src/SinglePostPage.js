@@ -21,7 +21,7 @@ const topics = [
 { label: 'Education', value: 'Education' },
 ];
 
-class Timeline extends Component {
+class SinglePostPage extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -151,4 +151,4 @@ class Timeline extends Component {
   }
 }
 
-export default Timeline;
+export default SinglePostPage;
