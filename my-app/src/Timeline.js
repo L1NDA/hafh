@@ -167,8 +167,8 @@ class Timeline extends Component {
     var Name = [`Manny Xiao`]
     var Post = [`${this.state.inputValue}`]
     var Img = ["./img/stock2.jpg"]
-    var Good = [this._generateNumber()];
-    var Bad = [this._generateNumber()];
+    var Good = [0];
+    var Bad = [0];
     var City = [`${this.state.selectValueCity}`];
 
     var joinedOption = Option.concat(this.state.selectedOption);
