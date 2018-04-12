@@ -14,8 +14,10 @@ import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 //import Info2 from './Info2.js';
-// import ImageBox from "./ImageBox.js";
+import ImageBox from "./ImageBox.js";
 import Info from "./Info.js";
+import Info2 from "./Info2.js";
+
 
 class Categories extends Component {
   constructor (props) {
@@ -23,11 +25,12 @@ class Categories extends Component {
     this.state = {
        CategoryName: ["Food", "Housing", "Legal", "Education"],
        GridImg: ["./img/food.jpg","./img/home.jpg", "./img/legal.jpg", "./img/education.jpg" ],
+       Link: ["https://l1nda.github.io/hafh/#/food","https://l1nda.github.io/hafh/#/home", "https://l1nda.github.io/hafh/#/food", "https://l1nda.github.io/hafh/#/food" ],
        counter: 4,
        showFood:false,
        showHousing:false,
     };
-    this.handleClick = this.handleClick.bind(this);
+    ///this.handleClick = this.handleClick.bind(this);
   }
   //
   // handleClick = () =>{
@@ -36,7 +39,7 @@ class Categories extends Component {
   //       showHousing: !prevState.showHousing
   //     }));
   //   }
-  //   if(CategoryName == "Food"){
+  //   if(this.state.CategoryName == "Food"){
   //     this.setState(prevState => ({
   //       showFood: !prevState.showFood
   //     }));
@@ -47,7 +50,7 @@ class Categories extends Component {
     var box = []
     for (var i = 0; i < this.state.counter; i++) {
       // console.log
-      // box.push(<ImageBox onClick={this.handleClick}  GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
+      box.push(<ImageBox link ={this.state.Link[i]}  GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
     }
     return box
   }
@@ -65,7 +68,6 @@ class Categories extends Component {
               }
             </div>
             <div className="categories-box">
-              {/* <Info2 category="housing"/> */}
               {this.createImg()}
             </div>
           </div>
