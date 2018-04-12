@@ -29,15 +29,17 @@ class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedOption: ["Housing"],
+      selectedOption: ["Housing", "Food"],
       option: "",
-      postImg: ["./img/stock.jpeg"],
+      postImg: ["./img/stock.jpeg", "./img/stock2.jpg"],
       myImg: "stock2",
-      name: ["Sara Zandvakilli"],
-      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?"],
-      counter: 1,
+      name: ["Sara Zandvakilli", "Manny Xiao"],
+      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "What is the best place for kbbq?"],
+      postLocation: ["Boston", "Boston"],
+      counter: 2,
       inputValue: "",
       selectValue: [],
+      selectValueCity: "Boston",
       goodRating: [],
       badRating: [],
     }
@@ -49,9 +51,12 @@ class Timeline extends Component {
 
   componentWillMount = () => {
     let good = [];
-    good.push(this._generateNumber());
     let bad = []
-    bad.push(this._generateNumber());
+
+    for (var i = 0; i < 2; i++) {
+      good.push(this._generateNumber());
+      bad.push(this._generateNumber());
+    }
 
     this.setState({
       goodRating: good,
@@ -80,6 +85,7 @@ class Timeline extends Component {
     var Img = ["./img/stock2.jpg"]
     var Good = [this._generateNumber()];
     var Bad = [this._generateNumber()];
+    var City = [`${this.state.selectValueCity}`];
 
     var joinedOption = Option.concat(this.state.selectedOption);
     var joinedName = Name.concat(this.state.name);
@@ -88,6 +94,7 @@ class Timeline extends Component {
     var img = Img.concat(this.state.postImg);
     var joinedGood = Good.concat(this.state.goodRating);
     var joinedBad = Bad.concat(this.state.badRating);
+    var joinedCity = City.concat(this.state.postLocation);
 
     this.setState({
       selectedOption: joinedOption,
@@ -96,7 +103,8 @@ class Timeline extends Component {
       counter: count,
       postImg: img,
       goodRating: joinedGood,
-      badRating: joinedBad
+      badRating: joinedBad,
+      postLocation: joinedCity,
     });
   }
 
@@ -113,9 +121,14 @@ class Timeline extends Component {
       splited = ["Housing", "Legal", "Food", "Education"]
     }
 
+    console.log("selectValue", splited);
+
     for (var i = 0; i < this.state.counter; i++) {
       console.log("option", this.state.selectedOption[i]);
-      if (splited.includes(this.state.selectedOption[i])){
+      console.log("postlocation", this.state.postLocation);
+      console.log("postlocation[i]", this.state.postLocation[i]);
+      console.log("selected city", this.state.selectValueCity);
+      if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
         posts.push(<Post
           img={this.state.postImg[i]}
           type={this.state.selectedOption[i]}
@@ -136,9 +149,10 @@ class Timeline extends Component {
     });
   }
 
-  updateValue (newValue) {
+  updateValue = (newValue) => {
+    console.log("newValue", newValue);
 		this.setState({
-			selectValue: newValue
+			selectValueCity: newValue
 		});
 	}
 
@@ -180,21 +194,20 @@ class Timeline extends Component {
         					simpleValue
         					clearable
         					name="select-city"
-        					value={this.state.selectValue}
+        					value={this.state.selectValueCity}
         					onChange={this.updateValue}
         					searchable
         					labelKey="name"
         					valueKey="name"
         				/>
                 <Select
-                  placeholder = "Boston"
                   className="timeline-multiselect"
         					closeOnSelect={false}
         					multi
                   joinValues
         					onChange={this.handleSelectChange}
         					options={topics}
-        					placeholder="Filter"
+        					placeholder="Filter by Category"
                   removeSelected={true}
         					simpleValue
         					value={this.state.selectValue}

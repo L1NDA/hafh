@@ -14,8 +14,8 @@ import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 //import Info2 from './Info2.js';
-import ImageBox from "./ImageBox.js";
-import Info from "./info.js";
+// import ImageBox from "./ImageBox.js";
+import Info from "./Info.js";
 
 class Categories extends Component {
   constructor (props) {
@@ -29,25 +29,25 @@ class Categories extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-
-  handleClick = () =>{
-    if(CategoryName == "Home"){
-      this.setState(prevState => ({
-        showHousing: !prevState.showHousing
-      }));
-    }
-    if(CategoryName == "Food"){
-      this.setState(prevState => ({
-        showFood: !prevState.showFood
-      }));
-    }
-  }
+  //
+  // handleClick = () =>{
+  //   if(CategoryName == "Home"){
+  //     this.setState(prevState => ({
+  //       showHousing: !prevState.showHousing
+  //     }));
+  //   }
+  //   if(CategoryName == "Food"){
+  //     this.setState(prevState => ({
+  //       showFood: !prevState.showFood
+  //     }));
+  //   }
+  // }
 
   createImg = () => {
     var box = []
     for (var i = 0; i < this.state.counter; i++) {
       // console.log
-      box.push(<ImageBox onClick={this.handleClick}  GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
+      // box.push(<ImageBox onClick={this.handleClick}  GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
     }
     return box
   }
@@ -59,15 +59,11 @@ class Categories extends Component {
           <div className="categories">
             <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
             <div className ="what-to-expect">
-            {this.state.showHousing ?
-              <Info /> :
-              null
-            }
-            {this.state.showFood ?
-              <Info2 /> :
-              null
-            }
-            </div>           
+              {this.state.showHousing ?
+                <Info /> :
+                null
+              }
+            </div>
             <div className="categories-box">
               {/* <Info2 category="housing"/> */}
               {this.createImg()}
