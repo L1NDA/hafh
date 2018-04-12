@@ -26,6 +26,7 @@ class Info extends Component {
     return (
       <HashRouter>
       <switch>
+        <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
           <div className="info-box">
               <div className="title">What to Expect When Looking for Housing</div>
               <div className="body">
