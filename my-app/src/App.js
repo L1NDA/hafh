@@ -6,6 +6,7 @@ import Timeline from './Timeline.js';
 import Signup from './Signup.js';
 import Categories from './Categories.js';
 import Categories2 from './Categories2.js';
+import SinglePostPage from './SinglePostPage.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path="/signup" exact component={Signup}/>
             <Route path="/categories" exact component={Categories}/>
             <Route path="/categories2" exact component={Categories2}/>
+            <Route path="/post" exact component={SinglePostPage}/>
           </Switch>
         </HashRouter>
       </div>

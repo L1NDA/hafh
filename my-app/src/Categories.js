@@ -20,16 +20,16 @@ class Categories extends Component {
   constructor (props) {
     super(props);
     this.state = {
-       CategoryName: ["HW"],
-       GridImg: ["./img/stock2.jpg"],
-       counter: 1
+       CategoryName: ["Food", "Housing", "Legal", "Education"],
+       GridImg: ["./img/food.jpg","./img/home.jpg", "./img/legal.jpg", "./img/education.jpg" ],
+       counter: 4
     }
   }
   createImg = () => {
     var box = []
     for (var i = 0; i < this.state.counter; i++) {
       // console.log
-      box.push(<ImageBox GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName} key={i}/>)
+      box.push(<ImageBox GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
     }
     return box
   }
