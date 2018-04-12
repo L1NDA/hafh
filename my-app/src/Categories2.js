@@ -28,7 +28,7 @@ class Categories2 extends Component {
       <HashRouter>
         <switch>
           <div className="categories">
-            <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
+            <Header button1="PROFILE" button2="LOG OUT" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
             <div className="categories-box">
               <Info category="housing"/>
             </div>

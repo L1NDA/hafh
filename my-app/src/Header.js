@@ -14,12 +14,24 @@ import "./css/react-resizable-styles.css";
 
 class Header extends Component {
 
+  componentDidMount() {
+    console.log("props", this.props);
+  }
+
   render() {
 
     return (
       <div className="header">
         <a href="https://l1nda.github.io/hafh/#"><img src={logo} className="logo"/></a>
         <div className="buttons-container">
+          {this.props.loggedIn ?
+            <a href="https://l1nda.github.io/hafh/#/timeline" className="href categories-link">your feed</a>
+            : null
+          }
+          {this.props.loggedIn ?
+            <a href="https://l1nda.github.io/hafh/#/categories" className="href categories-link">categories</a>
+            : null
+          }
           <HeaderButton text={this.props.button1}/>
           <a href={this.props.link} className="href"><HeaderButton text={this.props.button2}/></a>
         </div>

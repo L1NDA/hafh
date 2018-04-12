@@ -252,7 +252,7 @@ class Timeline extends Component {
       <HashRouter>
         <switch>
           <div className="timeline">
-            <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
+            <Header button1="PROFILE" button2="LOG OUT" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
             <div className="timeline-content">
               <div className="search-bar">
                 <input type="text" placeholder="Make a post!" className="search" onChange={evt => this.updateInputValue(evt)}/>
