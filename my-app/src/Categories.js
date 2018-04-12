@@ -18,6 +18,7 @@ import ImageBox from "./ImageBox.js";
 import Info from "./Info.js";
 import Info2 from "./Info2.js";
 
+
 class Categories extends Component {
   constructor (props) {
     super(props);
@@ -31,10 +32,9 @@ class Categories extends Component {
     };
     ///this.handleClick = this.handleClick.bind(this);
   }
-
+  //
   // handleClick = () =>{
-  //   console.log("click working");
-  //   if(this.state.CategoryName == "Home"){
+  //   if(CategoryName == "Home"){
   //     this.setState(prevState => ({
   //       showHousing: !prevState.showHousing
   //     }));
@@ -62,15 +62,11 @@ class Categories extends Component {
           <div className="categories">
             <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
             <div className ="what-to-expect">
-            {this.state.showHousing ?
-              <Info /> :
-              null
-            }
-            {this.state.showFood ?
-              <Info2 /> :
-              null
-            }
-            </div>           
+              {this.state.showHousing ?
+                <Info /> :
+                null
+              }
+            </div>
             <div className="categories-box">
               {this.createImg()}
             </div>
