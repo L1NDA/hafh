@@ -12,7 +12,11 @@ import {
 
 import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
+import VirtualizedSelect from 'react-virtualized-select';
 import 'react-select/dist/react-select.css';
+import 'react-virtualized-select/styles.css';
+
+const DATA = require('./cities.js');
 
 const topics = [
 { label: 'Housing', value: 'Housing' },
@@ -34,17 +38,34 @@ class Timeline extends Component {
       counter: 1,
       inputValue: "",
       selectValue: [],
+      goodRating: [],
+      badRating: [],
     }
   };
 
+  _generateNumber = () => {
+    return Math.floor(Math.random() * (50));
+  }
+
+  componentWillMount = () => {
+    let good = [];
+    good.push(this._generateNumber());
+    let bad = []
+    bad.push(this._generateNumber());
+
+    this.setState({
+      goodRating: good,
+      badRating: bad
+    })
+  }
 
   handleChange = (option) => {
     this.setState({ option: option });
   }
 
   handleSelectChange = (value) => {
-		console.log('You\'ve selected:', this.state.selectValue);
-    console.log("value", value);
+		// console.log('You\'ve selected:', this.state.selectValue);
+    // console.log("value", value);
 		this.setState({ selectValue: value }, function(){
       this.createPost();
     });
@@ -57,25 +78,33 @@ class Timeline extends Component {
     var Name = [`Manny Xiao`]
     var Post = [`${this.state.inputValue}`]
     var Img = ["./img/stock2.jpg"]
+    var Good = [this._generateNumber()];
+    var Bad = [this._generateNumber()];
 
     var joinedOption = Option.concat(this.state.selectedOption);
     var joinedName = Name.concat(this.state.name);
     var joinedPost = Post.concat(this.state.post);
     var count = this.state.counter + 1;
     var img = Img.concat(this.state.postImg);
+    var joinedGood = Good.concat(this.state.goodRating);
+    var joinedBad = Bad.concat(this.state.badRating);
 
     this.setState({
       selectedOption: joinedOption,
       name: joinedName,
       post: joinedPost,
       counter: count,
-      postImg: img
+      postImg: img,
+      goodRating: joinedGood,
+      badRating: joinedBad
     });
   }
 
   createPost = () => {
     var posts = [];
     let splited = [];
+
+    // filtering
     if (this.state.selectValue != "") {
       let categories = this.state.selectValue
       categories = categories.toString();
@@ -83,11 +112,19 @@ class Timeline extends Component {
     } else {
       splited = ["Housing", "Legal", "Food", "Education"]
     }
-    console.log("splited", splited);
+
     for (var i = 0; i < this.state.counter; i++) {
       console.log("option", this.state.selectedOption[i]);
       if (splited.includes(this.state.selectedOption[i])){
-        posts.push(<Post img={this.state.postImg[i]} type={this.state.selectedOption[i]} name={this.state.name[i]} post={this.state.post[i]} key={i}/>)
+        posts.push(<Post
+          img={this.state.postImg[i]}
+          type={this.state.selectedOption[i]}
+          name={this.state.name[i]}
+          post={this.state.post[i]}
+          key={i}
+          good={this.state.goodRating[i]}
+          bad={this.state.badRating[i]}
+        />)
       }
     }
     return posts
@@ -99,12 +136,20 @@ class Timeline extends Component {
     });
   }
 
+  updateValue (newValue) {
+		this.setState({
+			selectValue: newValue
+		});
+	}
+
   render () {
     const value = this.state.option && this.state.option.value;
     var btnClass = classNames('postButton');
     if (this.state.option) {
       btnClass += ` ${this.state.option.label}`
-    }
+    };
+
+    var options = DATA.CITIES
 
     return (
       <HashRouter>
@@ -129,14 +174,27 @@ class Timeline extends Component {
               </div>
               <div className="timeline-title">YOUR FEED</div>
               <div className="search-bar-2">
+                <VirtualizedSelect ref="citySelect"
+                  className="timeline-multiselect"
+        					options={options}
+        					simpleValue
+        					clearable
+        					name="select-city"
+        					value={this.state.selectValue}
+        					onChange={this.updateValue}
+        					searchable
+        					labelKey="name"
+        					valueKey="name"
+        				/>
                 <Select
+                  placeholder = "Boston"
                   className="timeline-multiselect"
         					closeOnSelect={false}
         					multi
                   joinValues
         					onChange={this.handleSelectChange}
         					options={topics}
-        					placeholder="Filter*"
+        					placeholder="Filter"
                   removeSelected={true}
         					simpleValue
         					value={this.state.selectValue}
