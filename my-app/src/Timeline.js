@@ -14,11 +14,18 @@ import FontAwesome from "react-fontawesome";
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
+const topics = [
+{ label: 'Housing', value: 'Housing' },
+{ label: 'Food', value: 'Food' },
+{ label: 'Legal', value: 'Legal' },
+{ label: 'Education', value: 'Education' },
+];
+
 class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedOption: ["Home"],
+      selectedOption: ["Housing"],
       option: "",
       postImg: ["./img/stock.jpeg"],
       myImg: "stock2",
@@ -26,12 +33,22 @@ class Timeline extends Component {
       post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?"],
       counter: 1,
       inputValue: "",
+      selectValue: [],
     }
-  }
+  };
+
 
   handleChange = (option) => {
     this.setState({ option: option });
   }
+
+  handleSelectChange = (value) => {
+		console.log('You\'ve selected:', this.state.selectValue);
+    console.log("value", value);
+		this.setState({ selectValue: value }, function(){
+      this.createPost();
+    });
+	}
 
   _handleClick = () => {
     console.log("clicked");
@@ -57,9 +74,21 @@ class Timeline extends Component {
   }
 
   createPost = () => {
-    var posts = []
+    var posts = [];
+    let splited = [];
+    if (this.state.selectValue != "") {
+      let categories = this.state.selectValue
+      categories = categories.toString();
+      splited = categories.split(",");
+    } else {
+      splited = ["Housing", "Legal", "Food", "Education"]
+    }
+    console.log("splited", splited);
     for (var i = 0; i < this.state.counter; i++) {
-      posts.push(<Post img={this.state.postImg[i]} type={this.state.selectedOption[i]} name={this.state.name[i]} post={this.state.post[i]} key={i}/>)
+      console.log("option", this.state.selectedOption[i]);
+      if (splited.includes(this.state.selectedOption[i])){
+        posts.push(<Post img={this.state.postImg[i]} type={this.state.selectedOption[i]} name={this.state.name[i]} post={this.state.post[i]} key={i}/>)
+      }
     }
     return posts
   }
@@ -92,11 +121,27 @@ class Timeline extends Component {
                   placeholder="Category*"
                   onChange={this.handleChange}
                   options={[
-                    { value: 'one', label: 'Home' },
+                    { value: 'one', label: 'Housing' },
                     { value: 'two', label: 'Food' },
                   ]}
                 />
               <div className={btnClass} onClick={this._handleClick}>POST</div>
+              </div>
+              <div className="timeline-title">YOUR FEED</div>
+              <div className="search-bar-2">
+                <Select
+                  className="timeline-multiselect"
+        					closeOnSelect={false}
+        					multi
+                  joinValues
+        					onChange={this.handleSelectChange}
+        					options={topics}
+        					placeholder="Filter*"
+                  removeSelected={true}
+        					simpleValue
+        					value={this.state.selectValue}
+        				/>
+
               </div>
               {this.createPost()}
             </div>

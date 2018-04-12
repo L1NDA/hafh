@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from "classnames";
 import "./css/categories.css";
 import Header from './Header.js';
+// import ImageBox from './ImageBox.js'
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -26,12 +27,12 @@ class Categories extends Component {
   createPost = () => {
     var posts = []
     for (var i = 0; i < this.state.counter; i++) {
-      posts.push(<ImageBox GridImg={this.state.GridImg[i]} CategoryName = {this.state.CategoryName[i]} />)
+      // Box.push(<ImageBox GridImage={this.state.query[i]} CategoryName={this.state.CategoryName}/>)
     }
     return posts
   }
 
-  
+
 
 
   render () {
