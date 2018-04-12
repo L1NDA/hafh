@@ -24,6 +24,8 @@ class Info2 extends Component {
   render () {
 
     return (
+      <HashRouter>
+      <switch>
           <div className="info-box">
               <div className="title">What to Expect When Looking for Food</div>
               <form className="body">
@@ -44,6 +46,8 @@ class Info2 extends Component {
                       allowfullscreen/>
               </form>
           </div>
+        </switch>
+      </HashRouter>
     )
   }
 }

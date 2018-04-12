@@ -7,6 +7,8 @@ import Signup from './Signup.js';
 import Categories from './Categories.js';
 import Categories2 from './Categories2.js';
 import SinglePostPage from './SinglePostPage.js';
+import Info from './Info.js';
+import Info2 from './Info2.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -37,6 +39,8 @@ class App extends Component {
             <Route path="/categories" exact component={Categories}/>
             <Route path="/categories2" exact component={Categories2}/>
             <Route path="/post" exact component={SinglePostPage}/>
+            <Route path="/home" exact component={Info}/>
+            <Route path="/food" exact component={Info2}/>
           </Switch>
         </HashRouter>
       </div>
