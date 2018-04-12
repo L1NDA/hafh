@@ -22,15 +22,15 @@ class ImageBox extends Component {
     }
 
     render() {
-
+      
     return (
       <div className="ImageBox">
        <div className="CategoryName">
             {this.props.CategoryName}
        </div>
-       <a href = {this.props.WhatToExpect}>
         <img src={require(`${this.props.GridImage}`)} className="category-pic" />
-       </a>
+      </div>
+      <div>
       </div>
     );
   }
