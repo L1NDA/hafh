@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from "classnames";
 import "./css/categories.css";
 import Header from './Header.js';
-import ImageBox from './ImageBox.js'
+// import ImageBox from './ImageBox.js'
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -25,7 +25,7 @@ class Categories extends Component {
   createImage = () => {
     var Box = []
     for (var i = 0; i < this.state.counter; i++) {
-      Box.push(<ImageBox GridImage={this.state.query[i]} CategoryName={this.state.CategoryName}/>)
+      // Box.push(<ImageBox GridImage={this.state.query[i]} CategoryName={this.state.CategoryName}/>)
     }
     return Box
   }
@@ -37,8 +37,8 @@ class Categories extends Component {
         <switch>
           <div className="categories">
             <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
-            <div className="categories-box"> 
-            </div>           
+            <div className="categories-box">
+            </div>
             {this.createImage()}
           </div>
         </switch>
