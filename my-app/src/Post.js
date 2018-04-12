@@ -33,6 +33,10 @@ class Post extends Component {
             <div className="post-name">{this.props.name}</div>
             <div className="post-content">{this.props.post}</div>
           </div>
+          <div className="ratings">
+            <div className="triangle-top"></div>
+            <div className="triangle-bottom"></div>
+          </div>
         </div>
         <div className="post-line"></div>
         <div className="post-response">

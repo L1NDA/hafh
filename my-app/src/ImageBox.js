@@ -20,7 +20,7 @@ class ImageBox extends Component {
 
         }
     }
-    
+
     render() {
 
     return (
@@ -28,7 +28,7 @@ class ImageBox extends Component {
        <div className="CategoryName">
             {this.props.CategoryName}
        </div>
-       <img src= {require(`${this.props.GridImg}`)} className="category-pic" />
+       <img src={require(`${this.props.GridImage}`)} className="category-pic" />
       </div>
     );
   }

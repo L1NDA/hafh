@@ -21,15 +21,17 @@ class Categories extends Component {
     super(props);
     this.state = {
        CategoryName: ["HW"],
-       GridImg: ["./img/stock2.jpg"]
+       GridImg: ["./img/stock2.jpg"],
+       counter: 1
     }
   }
-  createPost = () => {
-    var posts = []
+  createImg = () => {
+    var box = []
     for (var i = 0; i < this.state.counter; i++) {
-      // Box.push(<ImageBox GridImage={this.state.query[i]} CategoryName={this.state.CategoryName}/>)
+      // console.log
+      box.push(<ImageBox GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName} key={i}/>)
     }
-    return posts
+    return box
   }
 
 
@@ -44,7 +46,7 @@ class Categories extends Component {
             <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
             <div className="categories-box">
               {/* <Info2 category="housing"/> */}
-              {this.createPost()}
+              {this.createImg()}
             </div>
           </div>
         </switch>
