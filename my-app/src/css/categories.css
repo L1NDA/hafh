@@ -29,3 +29,12 @@ html {
   height: 100%;
   width: 100%;
 }
+
+.category-pic {
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-right: 25px;
+  flex-shrink: 0;
+}

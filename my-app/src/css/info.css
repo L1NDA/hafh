@@ -40,17 +40,18 @@ input {
   width: 10%;
 }
 
-b, strong {
+.dynamic-text {
   color: #f5a99b;
+  font-weight: 40px;
 }
 
 .bedroom {
-  width: 25px;
-  background-color: #f5a99b;
-  border: none;
-  border-radius: 4px;
-  height: 25px;
-}
+   width: 25px;
+   background-color: #f5a99b;
+   border: none;
+   border-radius: 4px;
+   height: 25px;
+ }
 
 .bathroom {
   width: 25px;
