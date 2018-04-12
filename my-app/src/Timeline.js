@@ -143,6 +143,15 @@ class Timeline extends Component {
     return posts
   }
 
+  sortPostsRatings = () => {
+    let totalRatingsArray = [];
+    for (var i; i < goodRating.length; i++) {
+      let totalRatings = (this.state.goodRating[i] - this.state.badRating[i], i);
+      totalRatingsArray.push(totalRatings);
+    }
+    console.log(totalRatingsArray);
+  }
+
   updateInputValue = (evt) => {
     this.setState({
       inputValue: evt.target.value
@@ -188,18 +197,22 @@ class Timeline extends Component {
               </div>
               <div className="timeline-title">YOUR FEED</div>
               <div className="search-bar-2">
-                <VirtualizedSelect ref="citySelect"
-                  className="timeline-multiselect"
-        					options={options}
-        					simpleValue
-        					clearable
-        					name="select-city"
-        					value={this.state.selectValueCity}
-        					onChange={this.updateValue}
-        					searchable
-        					labelKey="name"
-        					valueKey="name"
-        				/>
+                <div class="city-wrapper">
+                  <div class="city-title">Your current city:</div>
+                  <VirtualizedSelect ref="citySelect"
+                    className="timeline-multiselect"
+          					options={options}
+          					simpleValue
+          					clearable
+          					name="select-city"
+          					value={this.state.selectValueCity}
+          					onChange={this.updateValue}
+          					searchable
+          					labelKey="name"
+          					valueKey="name"
+          				/>
+                </div>
+
                 <Select
                   className="timeline-multiselect"
         					closeOnSelect={false}

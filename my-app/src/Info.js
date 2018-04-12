@@ -25,7 +25,7 @@ class Info extends Component {
 
     return (
           <div className="info-box">
-              <div className="title">What to Expect When Looking for Housing</div>
+              <div className="info-title">What to Expect When Looking for Housing</div>
               <div className="body">
                   Several factors are typically considered when people look for housing, including <b className="dynamic-text"> cost and location</b>.
                   <br/><br/>
