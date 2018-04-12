@@ -28,7 +28,9 @@ class ImageBox extends Component {
        <div className="CategoryName">
             {this.props.CategoryName}
        </div>
-       <img src={require(`${this.props.GridImage}`)} className="category-pic" />
+       <a href = {this.props.WhatToExpect}>
+        <img src={require(`${this.props.GridImage}`)} className="category-pic" />
+       </a>
       </div>
     );
   }
