@@ -37,7 +37,6 @@ class App extends Component {
             <Route path="/timeline" component={Timeline}/>
             <Route path="/signup" exact component={Signup}/>
             <Route path="/categories" exact component={Categories}/>
-            // <Route path="/categories2" exact component={Categories2}/>
             <Route path="/post" exact component={SinglePostPage}/>
             <Route path="/housing" exact component={Info}/>
             <Route path="/food" exact component={Info2}/>
