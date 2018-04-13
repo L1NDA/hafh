@@ -1,0 +1,23 @@
+"posts": [
+		{ 
+		"selectedOption": "joinedOption",
+		"name": "joinedName",
+		"post": "joinedPost",
+		"counter": "count",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "joinedOption",
+		"name": "joinedName",
+		"post": "joinedPost",
+		"counter": "count",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "joinedOption",
+		"name": "joinedName",
+		"post": "joinedPost",
+		"counter": "count",
+		"postImg": "img"
+	}, 
+]
