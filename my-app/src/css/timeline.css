@@ -93,9 +93,17 @@ html {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: space-between;
   width: 900px;
+}
+
+.city-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 12px;
 }
 
 /* -------- POST -------- */
@@ -123,8 +131,15 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin: 0 50px 30px 50px;
+}
+
+.post-text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .post-text > div {
@@ -193,28 +208,40 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.rating {
+  font-size: 10px;
+  margin: -10px 0;
 }
 
 .triangle-top {
   width: 0;
   height: 0;
-  border: solid 10px;
+  border: solid 15px;
   border-color: transparent transparent white transparent;
   margin-bottom: 5px;
+  z-index: 10;
 }
 
 .triangle-top:hover {
-  transform: scale(1.05);
-  color: gray;
-  transition: all 0.5s ease-in;
+  border-color: transparent transparent gray transparent;
+  transition: all 0.3s linear;
 }
 
 .triangle-bottom {
   margin-top: 5px;
   width: 0;
   height: 0;
-  border: solid 10px;
+  border: solid 15px;
   border-color: white transparent transparent transparent;
+  z-index: 10;
+}
+
+.triangle-bottom:hover {
+  border-color: gray transparent transparent transparent;
+  transition: all 0.3s linear;
 }
 
 .Housing {

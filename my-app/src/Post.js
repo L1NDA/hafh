@@ -16,8 +16,46 @@ class Post extends Component {
   constructor (props) {
     super(props);
     this.state = {
-
+      goodRating: 0,
+      badRating: 0
     }
+  }
+
+  componentWillMount = () => {
+    let good = this.props.good;
+    let bad = this.props.bad;
+
+    this.setState({
+      goodRating: good,
+      badRating: bad
+    })
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    let good = nextProps.good;
+    let bad = nextProps.bad;
+
+    this.setState({
+      goodRating: good,
+      badRating: bad
+    })
+  }
+
+
+  _handleclickTop = () => {
+    let good = parseInt(this.state.goodRating) + 1;
+
+    this.setState({
+      goodRating: good,
+    })
+  }
+
+  _handleclickBottom = () => {
+    let bad = parseInt(this.state.badRating) + 1;
+
+    this.setState({
+      badRating: bad,
+    })
   }
 
   render () {
@@ -28,14 +66,18 @@ class Post extends Component {
       <div className={postClass}>
         <div className="housing-label">{this.props.type}</div>
         <div className="post-og">
-          <img src={require(`${this.props.img}`)} className="post-pic"/>
-          <div className="post-text">
-            <div className="post-name">{this.props.name}</div>
-            <div className="post-content">{this.props.post}</div>
+          <div className="post-text-container">
+            <img src={require(`${this.props.img}`)} className="post-pic"/>
+            <div className="post-text">
+              <div className="post-name">{this.props.name}</div>
+              <div className="post-content">{this.props.post}</div>
+            </div>
           </div>
           <div className="ratings">
-            <div className="triangle-top"></div>
-            <div className="triangle-bottom"></div>
+            <div className="rating" type="good">{this.state.goodRating}</div>
+            <div className="triangle-top" onClick={this._handleclickTop}></div>
+            <div className="triangle-bottom" onClick={this._handleclickBottom}></div>
+            <div className="rating" type="bad">{this.state.badRating}</div>
           </div>
         </div>
         <div className="post-line"></div>

@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import ReactDOM from 'react-dom'
-import './App.css';
+import './css/categories.css';
 import ImgRoot from "./img/heart.png";
 import {
   BrowserRouter as Router,
@@ -21,17 +21,18 @@ class ImageBox extends Component {
         }
     }
 
+    // <a href={this.props.link} className="imagebox-container">
+
     render() {
 
     return (
-      <div className="ImageBox">
-       <div className="CategoryName">
-            {this.props.CategoryName}
-       </div>
-       <a href = {this.props.WhatToExpect}>
-        <img src={require(`${this.props.GridImage}`)} className="category-pic" />
-       </a>
-      </div>
+      <a href={this.props.link} className="imagebox-container">
+        <div className="ImageBox" id={this.props.CategoryName}>
+          <div className="CategoryName">
+              {this.props.CategoryName}
+          </div>
+        </div>
+      </a>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Iframe from 'react-iframe'
 import classNames from "classnames";
+import Header from './Header.js';
 import "./css/info.css";
 import { HashRouter } from 'react-router-dom';
 import {
@@ -24,8 +25,13 @@ class Info2 extends Component {
   render () {
 
     return (
+      <HashRouter>
+      <switch>
+      <div className="info-container">
+      <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
+
           <div className="info-box">
-              <div className="title">What to Expect When Looking for Food</div>
+              <div className="info-title">What to Expect When Looking for Food</div>
               <form className="body">
                   Several factors are typically considered when people search for foods, including <b>cost</b> and <b>store location</b>.<br/>
                   <br/>
@@ -44,6 +50,9 @@ class Info2 extends Component {
                       allowfullscreen/>
               </form>
           </div>
+        </div>
+        </switch>
+      </HashRouter>
     )
   }
 }
