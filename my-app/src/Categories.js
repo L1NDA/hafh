@@ -23,10 +23,9 @@ class Categories extends Component {
   constructor (props) {
     super(props);
     this.state = {
-       CategoryName: ["Food", "Housing", "Legal", "Education"],
-       GridImg: ["./img/food.jpg","./img/home.jpg", "./img/legal.jpg", "./img/education.jpg" ],
-       Link: ["https://l1nda.github.io/hafh/#/food","https://l1nda.github.io/hafh/#/home", "https://l1nda.github.io/hafh/#/food", "https://l1nda.github.io/hafh/#/food" ],
-       counter: 4,
+       CategoryName: ["Food", "Housing", "Legal", "Education", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler"],
+       Link: ["https://l1nda.github.io/hafh/#/food","https://l1nda.github.io/hafh/#/home", "https://l1nda.github.io/hafh/#/food", "https://l1nda.github.io/hafh/#/food", null, null, null, null, null, null, null, null ],
+       counter: 12,
        showFood:false,
        showHousing:false,
     };
@@ -46,29 +45,44 @@ class Categories extends Component {
   //   }
   // }
 
-  createImg = () => {
-    var box = []
-    for (var i = 0; i < this.state.counter; i++) {
-      // console.log
-      box.push(<ImageBox link ={this.state.Link[i]}  GridImage={this.state.GridImg[i]} CategoryName={this.state.CategoryName[i]} key={i}/>)
-    }
-    return box
+  handleClick = () => {
+    console.log("clicked");
   }
+
+  // createImg = () => {
+  //   var box = []
+  //   for (var i = 0; i < this.state.counter; i++) {
+  //     // console.log
+  //     box.push(<ImageBox link={this.state.Link[i]} onClick={() => this.handleClick()} CategoryName={this.state.CategoryName[i]} key={i}/>)
+  //   }
+  //   this.state.CategoryName.map(name => )
+  //   return box
+  // }
   render () {
+
+    var categories = this.state.CategoryName;
+    var links = this.state.Link;
 
     return (
       <HashRouter>
         <switch>
           <div className="categories">
-            <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
-            <div className ="what-to-expect">
-              {this.state.showHousing ?
-                <Info /> :
-                null
-              }
-            </div>
-            <div className="categories-box">
-              {this.createImg()}
+            <Header button1="PROFILE" button2="LOG OUT" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
+            <div className="categories-container">
+              <div className ="what-to-expect">
+                {this.state.showHousing ?
+                  <Info /> :
+                  null
+                }
+              </div>
+              <div className="categories-box">
+
+                {categories.map((name, i) => {
+                  return (
+                    <ImageBox link={links[i]} onClick={this.handleClick} CategoryName={categories[i]} key={i}/>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </switch>
@@ -78,3 +92,5 @@ class Categories extends Component {
 }
 
 export default Categories;
+
+// {this.createImg()}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Iframe from 'react-iframe'
 import classNames from "classnames";
+import Header from './Header.js';
 import "./css/info.css";
 import { HashRouter } from 'react-router-dom';
 import {

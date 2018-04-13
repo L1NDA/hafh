@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Iframe from 'react-iframe'
 import classNames from "classnames";
 import "./css/info.css";
+import Header from './Header.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -24,9 +25,6 @@ class Info extends Component {
   render () {
 
     return (
-      <HashRouter>
-      <switch>
-        <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
           <div className="info-box">
               <div className="info-title">What to Expect When Looking for Housing</div>
               <div className="body">
@@ -49,8 +47,6 @@ class Info extends Component {
                       allowfullscreen/>
               </div>
           </div>
-          </switch>
-      </HashRouter>
     )
   }
 }
