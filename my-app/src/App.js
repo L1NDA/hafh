@@ -38,6 +38,8 @@ class App extends Component {
             <Route path="/signup" exact component={Signup}/>
             <Route path="/categories" exact component={Categories}/>
             <Route path="/post" exact component={SinglePostPage}/>
+            {/* <Route path="/food" exact component={Info2}/>
+            <Route path="/home" exact component={Info}/> */}
           </Switch>
         </HashRouter>
       </div>
