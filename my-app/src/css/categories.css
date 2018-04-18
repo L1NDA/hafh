@@ -19,18 +19,19 @@ html {
   justify-content: flex-start;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
 }
 
 .categories-container {
-  width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  overflow-x: scroll;
+  z-index: 50;
   height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 150px;
 }
 
-.categories-box {
+/* .categories-box {
   background-color: lightgray;
   display: flex;
   align-items: center;
@@ -38,16 +39,7 @@ html {
   flex-wrap: wrap;
   height: auto;
   width: 100%;
-}
-
-.ImageBox {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  margin: 15px;
-  flex-shrink: 0;
-  z-index: 3;
-}
+} */
 
 #Food {
   background-image: url("food.jpg");
@@ -74,14 +66,21 @@ html {
 }
 
 .ImageBox:hover {
-  transform: scale(1.05);
-  transition: all 0.3s ease-in;
+  /* transform: scale(1.05); */
+  transition: all 0.2s ease-in;
 }
 
 .ImageBox {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 15px;
+  position: relative;
+  width: 125px;
+  height: 125px;
+  flex-shrink: 0;
+  z-index: 3;
+  cursor: pointer;
 }
 
 .CategoryName {
@@ -89,10 +88,50 @@ html {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 800;
 }
 
 .imagebox-container {
   text-decoration: none;
+  position: relative;
+  padding: 5px;
+}
+
+.imagebox-photo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 24;
+  object-fit: cover;
+}
+
+/* .imagebox-photo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 24;
+  object-fit: cover;
+} */
+
+/* category popup */
+
+.chosen {
+  filter: brightness(1) saturate(100%);
+}
+
+.chosen:hover {
+  filter: brightness(.5) saturate(50%);
+}
+
+.not-chosen {
+  filter: brightness(.5) saturate(50%);
+}
+
+.not-chosen:hover {
+  filter: brightness(1) saturate(100%);
 }
