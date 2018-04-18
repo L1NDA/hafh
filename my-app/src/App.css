@@ -82,3 +82,20 @@ html, body {
   color: black;
   transition: all .5s linear;
 }
+
+.horizontal-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.generic-container {
+  height: auto;
+}
