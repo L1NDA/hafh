@@ -162,12 +162,16 @@ html {
 }
 
 .housing-label {
-  background-color: white;
+  background-color: none;
+  border: 1px solid white;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   width: 150px;
   height: 30px;
-  color: gray;
+  color: white;
   border-radius: 50px;
-  font-size: 12px;
+  font-size: 10px;
   align-self: flex-end;
   display: flex;
   align-items: center;
