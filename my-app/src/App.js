@@ -35,11 +35,11 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Homepage}/>
             <Route path="/timeline" component={Timeline}/>
-            <Route path="/signup" exact component={Signup}/>
+            <Route path="/signupcs" exact component={Signup}/>
             <Route path="/categories" exact component={Categories}/>
             <Route path="/post" exact component={SinglePostPage}/>
-            <Route path="/housing" exact component={Info}/>
-            <Route path="/food" exact component={Info2}/>
+            {/* <Route path="/food" exact component={Info2}/>
+            <Route path="/home" exact component={Info}/> */}
           </Switch>
         </HashRouter>
       </div>
