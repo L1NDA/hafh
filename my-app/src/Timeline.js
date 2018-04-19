@@ -25,21 +25,27 @@ class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedOption: ["Housing","Food"],
-      option: "",
-      postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
-      myImg: "stock2",
-      name: ["Sara Zandvakilli","Sara Zandvakilli"],
-      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
-      counter: 2,
-      inputValue: "", 
-      selectValue: [],
-      goodRating:[5,1],
-      badRating:[1,10],
+          
+      // selectedOption: ["Housing","Food"],
+      // option: "",
+      // postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
+      // myImg: "stock2",
+      // name: ["Sara Zandvakilli","Sara Zandvakilli"],
+      // post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
+      // counter: 2,
+      // inputValue: "", 
+      // selectValue: [],
+      // goodRating:[5,1],
+      // badRating:[1,10],
+    
+
     }
+
   };
 
-  componentDidMount = () => {
+  componentWillMount = () => {
+
+    if(JSON.parse(localStorage.getItem("selectedoption"))){
 
     this.setState({
       selectedOption: JSON.parse(localStorage.getItem("selectedoption")),
@@ -53,7 +59,23 @@ class Timeline extends Component {
       selectValue: [],
       goodRating:JSON.parse(localStorage.getItem("goodRating")),
       badRating: JSON.parse(localStorage.getItem("badRating")),
+    })}
+
+    else{
+      this.setState({
+      selectedOption: ["Housing","Food"],
+      option: "",
+      postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
+      myImg: "stock2",
+      name: ["Sara Zandvakilli","Sara Zandvakilli"],
+      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
+      counter: 2,
+      inputValue: "", 
+      selectValue: [],
+      goodRating:[5,1],
+      badRating:[1,10],
     })
+    }
   }
 
   saveStuff = () => {
@@ -88,19 +110,27 @@ class Timeline extends Component {
     var Name = [`Manny Xiao`]
     var Post = [`${this.state.inputValue}`]
     var Img = ["./img/stock2.jpg"]
+    var good =[0]
+    var bad = [0] 
 
     var joinedOption = Option.concat(this.state.selectedOption);
     var joinedName = Name.concat(this.state.name);
     var joinedPost = Post.concat(this.state.post);
     var count = this.state.counter + 1;
     var img = Img.concat(this.state.postImg);
+    var goodRating = good.concat(this.state.goodRating); 
+    var badRating = bad.concat(this.state.badRating);
 
     this.setState({
       selectedOption: joinedOption,
       name: joinedName,
       post: joinedPost,
       counter: count,
-      postImg: img
+      postImg: img,
+      goodRating: goodRating,
+      badRating: badRating,
+
+
     });
   }
 
