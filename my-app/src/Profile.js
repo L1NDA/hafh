@@ -8,6 +8,7 @@ import Header from './Header.js';
 import { HashRouter } from 'react-router-dom';
 import "./css/profile.css";
 import 'react-datepicker/dist/react-datepicker.css';
+import profpic from "./img/stock2.jpg"
 
 
 import {
@@ -34,22 +35,46 @@ class Profile extends Component {
       <HashRouter>
         <switch>
         <Header button1="log in" button2="sign up" link="https://l1nda.github.io/hafh/#/signup"/>
+          
           <div className="signup">
-           
+            <img src={profpic} className="profpic"/>
             <div className="signup-form" noValidate>
            
               <div className="form-inner">
               <div className="signup-title">Manny Xiao</div>
+
                 <div className="row">
+                Bio:
                   <div className="signup-formControl"  name="firstName" placeholder="First Name">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus consectetur magna, 
                         non mollis metus elementum ac. Maecenas sit amet felis at metus ultrices dignissim eu tempor 
-                        nibh. Curabitur sed posuere arcu, sed aliquam lorem. Etiam ut justo varius justo tempus mattis. Suspendisse vel commodo leo. Nulla metus magna, rutrum sed placerat sed, fringilla vitae dolor. Duis in consectetur lectus. In et enim vel urna laoreet sagittis a non erat. Vivamus vel hendrerit magna. Duis lacinia consectetur erat, eu bibendum neque posuere in. Aliquam pretium euismod risus, nec consectetur libero auctor ac.</div>
+                        nibh. Curabitur sed posuere arcu, sed aliquam lorem. Etiam ut justo varius justo tempus mattis.
+                  </div>
                 </div>
 
                 <div className="row">
-                    hello
+                Years in the US:
+                    <div className="signup-formControl"  name="firstName" placeholder="First Name">
+                   5
+                    </div>
                 </div>
+
+
+                <div className="row">
+                Country of Origin:
+                    <div className="signup-formControl"  name="firstName" placeholder="First Name">
+                        Israel
+                    </div>
+                </div>
+
+
+                <div className="row">
+                State of residence:
+                    <div className="signup-formControl"  name="firstName" placeholder="First Name">
+                        New York 
+                    </div>
+                </div>
+
               </div>
             </div>
           </div>

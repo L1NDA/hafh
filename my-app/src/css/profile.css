@@ -30,7 +30,6 @@ html {
 .signup-formControl {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid gray;
   font-family: 'Lato', sans-serif;
   padding: 5px;
   margin: 15px 10px;
