@@ -25,20 +25,6 @@ class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
-          
-      // selectedOption: ["Housing","Food"],
-      // option: "",
-      // postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
-      // myImg: "stock2",
-      // name: ["Sara Zandvakilli","Sara Zandvakilli"],
-      // post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
-      // counter: 2,
-      // inputValue: "", 
-      // selectValue: [],
-      // goodRating:[5,1],
-      // badRating:[1,10],
-    
-
     }
 
   };
@@ -63,17 +49,17 @@ class Timeline extends Component {
 
     else{
       this.setState({
-      selectedOption: ["Housing","Food"],
+      selectedOption: ["Housing",],
       option: "",
-      postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
+      postImg: ["./img/stock.jpeg",],
       myImg: "stock2",
-      name: ["Sara Zandvakilli","Sara Zandvakilli"],
-      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
-      counter: 2,
+      name: ["Sara Zandvakilli",],
+      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?",],
+      counter: 1,
       inputValue: "", 
       selectValue: [],
-      goodRating:[5,1],
-      badRating:[1,10],
+      goodRating:[5,],
+      badRating:[1,],
     })
     }
   }
