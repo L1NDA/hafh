@@ -29,10 +29,6 @@ class Header extends Component {
             : null
           }
           {this.props.loggedIn ?
-            <a href="https://l1nda.github.io/hafh/#/categories" className="href categories-link">categories</a>
-            : null
-          }
-          {this.props.loggedIn ?
             <a href="https://l1nda.github.io/hafh/#/messages" className="href categories-link">messages</a>
             : null
           }

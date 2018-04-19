@@ -24,26 +24,26 @@ class Post extends Component {
     }
   }
 
-  // componentWillMount = () => {
-  //   let good = this.props.good;
-  //   let bad = this.props.bad;
+  componentWillMount = () => {
+    let good = this.props.good;
+    let bad = this.props.bad;
 
-  //   this.setState({
-  //     goodRating: good,
-  //     badRating: bad,
-  //     clicked: false
-  //   })
-  // }
+    this.setState({
+      goodRating: good,
+      badRating: bad,
+      clicked: false
+    })
+  }
 
-  // componentWillReceiveProps = (nextProps) => {
-  //   let good = nextProps.good;
-  //   let bad = nextProps.bad;
+  componentWillReceiveProps = (nextProps) => {
+    let good = nextProps.good;
+    let bad = nextProps.bad;
 
-  //   this.setState({
-  //     goodRating: good,
-  //     badRating: bad
-  //   })
-  // }
+    this.setState({
+      goodRating: good,
+      badRating: bad
+    })
+  }
 
   _handleEmail = () => {
     this.setState( (prevState) => ({
