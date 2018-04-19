@@ -4,6 +4,8 @@ import classNames from "classnames";
 import './css/categories.css';
 import ImgRoot from "./img/heart.png";
 import ImageBox from './ImageBox.js';
+import ImageBoxFood from './ImageBoxFood.js';
+import ImageBoxHousing from './ImageBoxHousing.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -18,7 +20,7 @@ class CategoriesPopup extends Component {
     constructor (props) {
         super(props);
         this.state = {
-          CategoryName: ["Food", "Housing", "Legal", "Education", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler"],
+          CategoryName: ["Food", "Housing", "Legal", "Education"],
         }
     }
 
@@ -43,14 +45,10 @@ class CategoriesPopup extends Component {
 
     return (
         <div className="categories-scroll">
-          <div className="categories-box">
-
-            {categories.map((name, i) => {
-              return (
-                <ImageBox onClick={this.handleClick} class={categoriesClassNames[i]} CategoryName={categories[i]} key={i}/>
-              )
-            })}
-          </div>
+            <ImageBoxFood onClick={this.handleClick} class={categoriesClassNames[0]} CategoryName={categories[0]}/>
+            <ImageBoxHousing onClick={this.handleClick} class={categoriesClassNames[1]} CategoryName={categories[1]}/>
+            <ImageBox onClick={this.handleClick} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
+            <ImageBox onClick={this.handleClick} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
         </div>
     );
   }

@@ -25,6 +25,23 @@ class Timeline extends Component {
   constructor (props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
+=======
+
+      // selectedOption: ["Housing","Food"],
+      // option: "",
+      // postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
+      // myImg: "stock2",
+      // name: ["Sara Zandvakilli","Sara Zandvakilli"],
+      // post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
+      // counter: 2,
+      // inputValue: "",
+      // selectValue: [],
+      // goodRating:[5,1],
+      // badRating:[1,10],
+
+
+>>>>>>> 0d2f7ed977ecdc8dae13412241f7ce035889aa8d
     }
 
   };
@@ -41,7 +58,7 @@ class Timeline extends Component {
       name: JSON.parse(localStorage.getItem("names")),
       post: JSON.parse(localStorage.getItem("posts")),
       counter: JSON.parse(localStorage.getItem("counter")),
-      inputValue: "", 
+      inputValue: "",
       selectValue: [],
       goodRating:JSON.parse(localStorage.getItem("goodRating")),
       badRating: JSON.parse(localStorage.getItem("badRating")),
@@ -53,10 +70,17 @@ class Timeline extends Component {
       option: "",
       postImg: ["./img/stock.jpeg",],
       myImg: "stock2",
+<<<<<<< HEAD
       name: ["Sara Zandvakilli",],
       post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?",],
       counter: 1,
       inputValue: "", 
+=======
+      name: ["Sara Zandvakilli","Sara Zandvakilli"],
+      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "or nah?"],
+      counter: 2,
+      inputValue: "",
+>>>>>>> 0d2f7ed977ecdc8dae13412241f7ce035889aa8d
       selectValue: [],
       goodRating:[5,],
       badRating:[1,],
@@ -97,14 +121,14 @@ class Timeline extends Component {
     var Post = [`${this.state.inputValue}`]
     var Img = ["./img/stock2.jpg"]
     var good =[0]
-    var bad = [0] 
+    var bad = [0]
 
     var joinedOption = Option.concat(this.state.selectedOption);
     var joinedName = Name.concat(this.state.name);
     var joinedPost = Post.concat(this.state.post);
     var count = this.state.counter + 1;
     var img = Img.concat(this.state.postImg);
-    var goodRating = good.concat(this.state.goodRating); 
+    var goodRating = good.concat(this.state.goodRating);
     var badRating = bad.concat(this.state.badRating);
 
     this.setState({
@@ -137,7 +161,7 @@ class Timeline extends Component {
         posts.push(<Post img={this.state.postImg[i]} type={this.state.selectedOption[i]} name={this.state.name[i]} post={this.state.post[i]} goodRating ={this.state.goodRating[i]} badRating ={this.state.badRating[i]} saveStuff = {this.state.saveStuff} key={i}/>)
       }
     }
-   
+
     return posts
   }
 
@@ -195,6 +219,13 @@ class Timeline extends Component {
               {this.createPost()}
               {this.saveStuff()}
             </div>
+            {this.state.chosen ?
+              <div>
+                <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Topics</div>
+                <CategoriesPopup chosen={chosen}/>
+              </div> :
+              <div className="show-categories" onClick={this._handleChosenClick}>View Topic Tags</div>
+            }
           </div>
         </switch>
       </HashRouter>
