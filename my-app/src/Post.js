@@ -3,6 +3,7 @@ import { FormErrors } from './FormErrors';
 import classNames from "classnames";
 import "./css/timeline.css";
 import Header from './Header.js';
+import Timeline from './Timeline.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,33 +17,33 @@ class Post extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      goodRating: 0,
-      badRating: 0,
+      goodRating: this.props.goodRating,
+      badRating: this.props.badRating,
       clicked: false,
       sent: false,
     }
   }
 
-  componentWillMount = () => {
-    let good = this.props.good;
-    let bad = this.props.bad;
+  // componentWillMount = () => {
+  //   let good = this.props.good;
+  //   let bad = this.props.bad;
 
-    this.setState({
-      goodRating: good,
-      badRating: bad,
-      clicked: false
-    })
-  }
+  //   this.setState({
+  //     goodRating: good,
+  //     badRating: bad,
+  //     clicked: false
+  //   })
+  // }
 
-  componentWillReceiveProps = (nextProps) => {
-    let good = nextProps.good;
-    let bad = nextProps.bad;
+  // componentWillReceiveProps = (nextProps) => {
+  //   let good = nextProps.good;
+  //   let bad = nextProps.bad;
 
-    this.setState({
-      goodRating: good,
-      badRating: bad
-    })
-  }
+  //   this.setState({
+  //     goodRating: good,
+  //     badRating: bad
+  //   })
+  // }
 
   _handleEmail = () => {
     this.setState( (prevState) => ({
@@ -66,6 +67,7 @@ class Post extends Component {
     this.setState({
       goodRating: good,
     })
+    this.props.saveStuff;
   }
 
   _handleclickBottom = () => {
@@ -74,7 +76,10 @@ class Post extends Component {
     this.setState({
       badRating: bad,
     })
+    this.props.saveStuff;
   }
+
+
 
   render () {
 
