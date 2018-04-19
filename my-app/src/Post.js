@@ -27,6 +27,7 @@ class Post extends Component {
   componentWillMount = () => {
     let good = this.props.good;
     let bad = this.props.bad;
+    console.log("called");
 
     this.setState({
       goodRating: good,

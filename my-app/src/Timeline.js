@@ -54,7 +54,7 @@ class Timeline extends Component {
 
   componentWillMount = () => {
 
-    if(JSON.parse(localStorage.getItem("selectedoption"))){
+    if(JSON.parse(localStorage.getItem("posts"))){
 
     this.setState({
       selectedOption: JSON.parse(localStorage.getItem("selectedoption")),
@@ -72,9 +72,9 @@ class Timeline extends Component {
 
     else{
       this.setState({
-      selectedOption: ["Housing",],
+      selectedOption: ["Housing", "Food", "Legal", "Education"],
       option: "",
-      postImg: ["./img/stock.jpeg",],
+      postImg: ["./img/stock.jpeg", "./img/stock.jpeg"],
       myImg: "stock2",
       name: ["Sara Zandvakilli","Sara Zandvakilli"],
       post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "Yamatos is a really great place for a sushi buffet, but a little pricy."],
@@ -280,6 +280,7 @@ class Timeline extends Component {
         />)
       }
     }
+
     return posts
   }
 
@@ -368,18 +369,6 @@ class Timeline extends Component {
                     { value: 'three', label: 'Most Popular' },
                   ]}
                 />
-                <Select
-                  className="timeline-multiselect"
-        					closeOnSelect={false}
-        					multi
-                  joinValues
-        					onChange={this.handleSelectChange}
-        					options={topics}
-        					placeholder="Filter by Category"
-                  removeSelected={true}
-        					simpleValue
-        					value={this.state.selectValue}
-        				/>
 
               </div>
               {this.createPost()}
@@ -399,3 +388,16 @@ class Timeline extends Component {
 }
 
 export default Timeline;
+
+// {<Select
+//   className="timeline-multiselect"
+// 	closeOnSelect={false}
+// 	multi
+//   joinValues
+// 	onChange={this.handleSelectChange}
+// 	options={topics}
+// 	placeholder="Filter by Category"
+//   removeSelected={true}
+// 	simpleValue
+// 	value={this.state.selectValue}
+// />}
