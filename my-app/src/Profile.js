@@ -37,6 +37,7 @@ class Profile extends Component {
         <Header button1="log in" button2="sign up" link="https://l1nda.github.io/hafh/#/signup"/>
           
           <div className="signup">
+          <div className = "head"> <h1>Profile</h1>  </div>
             <img src={profpic} className="profpic"/>
             <div className="signup-form" noValidate>
            
@@ -46,9 +47,7 @@ class Profile extends Component {
                 <div className="row">
                 Bio:
                   <div className="signup-formControl"  name="firstName" placeholder="First Name">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus consectetur magna, 
-                        non mollis metus elementum ac. Maecenas sit amet felis at metus ultrices dignissim eu tempor 
-                        nibh. Curabitur sed posuere arcu, sed aliquam lorem. Etiam ut justo varius justo tempus mattis.
+                        Hi I'm Manny. 
                   </div>
                 </div>
 
