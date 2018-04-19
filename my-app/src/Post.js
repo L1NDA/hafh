@@ -95,13 +95,6 @@ class Post extends Component {
                   </div>
                 </div> :
                 <div className="send-email">
-                  <FontAwesome
-                    onClick={this._handleEmail}
-                    name='times-circle'
-                    className="times-circle"
-                    size='2x'
-                    style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
-                  />
                   <div className="send-email-container">
                     <div className="vertical-flex send-message-header">
                       <img src={require(`${this.props.img}`)} className="send-message-pic"/>
@@ -113,7 +106,7 @@ class Post extends Component {
                 </div>
               }
 
-            <div className="modal"></div>
+            <div className="modal" onClick={this._handleEmail}></div>
           </div> :
           null
         }

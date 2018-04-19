@@ -337,10 +337,10 @@ class Timeline extends Component {
             </div>
             {this.state.chosen ?
               <div>
-                <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Categories</div>
+                <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Topics</div>
                 <CategoriesPopup chosen={chosen}/>
               </div> :
-              <div className="show-categories" onClick={this._handleChosenClick}>View Categories</div>
+              <div className="show-categories" onClick={this._handleChosenClick}>View Topic Tags</div>
             }
           </div>
         </switch>
