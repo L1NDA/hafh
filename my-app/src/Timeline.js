@@ -72,9 +72,9 @@ class Timeline extends Component {
 
     else{
       this.setState({
-      selectedOption: ["Housing","Food"],
+      selectedOption: ["Housing",],
       option: "",
-      postImg: ["./img/stock.jpeg","./img/stock.jpeg"],
+      postImg: ["./img/stock.jpeg",],
       myImg: "stock2",
       name: ["Sara Zandvakilli","Sara Zandvakilli"],
       post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "Yamatos is a really great place for a sushi buffet, but a little pricy."],
