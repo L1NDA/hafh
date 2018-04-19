@@ -9,6 +9,8 @@ import Categories2 from './Categories2.js';
 import SinglePostPage from './SinglePostPage.js';
 import Info from './Info.js';
 import Info2 from './Info2.js';
+import Messages from './Messages.js';
+import Profile from './Profile.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -38,8 +40,10 @@ class App extends Component {
             <Route path="/signupcs" exact component={Signup}/>
             <Route path="/categories" exact component={Categories}/>
             <Route path="/post" exact component={SinglePostPage}/>
-            {/* <Route path="/food" exact component={Info2}/>
-            <Route path="/home" exact component={Info}/> */}
+            <Route path="/housing" exact component={Info}/>
+            <Route path="/food" exact component={Info2}/>
+            <Route path="/messages" exact component={Messages}/>
+            <Route path="/profile" exact component={Profile}/>
           </Switch>
         </HashRouter>
       </div>

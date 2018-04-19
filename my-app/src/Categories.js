@@ -24,7 +24,7 @@ class Categories extends Component {
     super(props);
     this.state = {
        CategoryName: ["Food", "Housing", "Legal", "Education", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler", "Filler"],
-       Link: ["https://l1nda.github.io/hafh/#/food","https://l1nda.github.io/hafh/#/home", "https://l1nda.github.io/hafh/#/food", "https://l1nda.github.io/hafh/#/food", null, null, null, null, null, null, null, null ],
+       Link: ["https://l1nda.github.io/hafh/#/food","https://l1nda.github.io/hafh/#/housing", null, null, null, null, null, null, null, null, null, null ],
        counter: 12,
        showFood:false,
        showHousing:false,

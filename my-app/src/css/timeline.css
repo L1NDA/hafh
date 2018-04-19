@@ -123,7 +123,6 @@ html {
   height: 125px;
   border-radius: 100px;
   object-fit: cover;
-  margin-right: 25px;
   flex-shrink: 0;
 }
 
@@ -138,8 +137,15 @@ html {
 .post-text-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+}
+
+.post-text {
+  width: 600px;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .post-text > div {
@@ -147,17 +153,25 @@ html {
 }
 
 .post-name {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.post-propic {
+  margin-right: 25px;
 }
 
 .housing-label {
-  background-color: white;
+  background-color: none;
+  border: 1px solid white;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   width: 150px;
   height: 30px;
-  color: gray;
+  color: white;
   border-radius: 50px;
-  font-size: 12px;
+  font-size: 10px;
   align-self: flex-end;
   display: flex;
   align-items: center;
@@ -243,6 +257,187 @@ html {
   border-color: gray transparent transparent transparent;
   transition: all 0.3s linear;
 }
+
+/* random other shit */
+
+.envelope {
+  font-size: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.envelope:hover {
+  color: white;
+  transition: color 0.2s ease-in;
+}
+
+.times-circle {
+  color: #404040;
+  margin-top: -6px;
+  margin-left: -6px;
+  cursor: pointer;
+}
+
+.times-circle:hover {
+  color: black;
+  transition: color 0.2s ease-in;
+}
+
+.send-email {
+  height: 500px;
+  width: 350px;
+  background-color: white;
+  box-shadow: 0px 2px 8px 0px rgba(56,56,56,0.5);
+  position: absolute;
+  top: 0;
+  left:0;
+  right:0;
+  margin-top: 100px;
+  margin-left:auto;
+  margin-right:auto;
+  z-index: 91;
+  border-radius: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: .25;
+  z-index: 90;
+}
+
+/* sending message stuff */
+
+.send-email-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px 10px;
+}
+
+.sent {
+  justify-content: center;
+}
+
+.send-message-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+.send-message-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.send-message-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+  height: 200px;
+  background-color: none;
+  border: 0.5px solid gray;
+  margin: 20px 0;
+  padding: 25px;
+  resize: none;
+}
+
+.send-message-text:focus {
+  outline: none;
+  border: 0.5px solid black;
+  transition: all 0.3s ease-in;
+}
+
+.send-message-button {
+  border-radius: 15px;
+  height: 30px;
+  width: 125px;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.send-message-button:hover {
+  background-color: black;
+  transition: background-color 0.2s ease-in;
+}
+
+.send-email-link {
+  color: black;
+  font-weight: 600;
+}
+
+.send-email-link:hover {
+  border-bottom: 1px solid black;
+}
+
+/* for the categories popup on the bottom */
+
+.categories-scroll {
+  background-color: white;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow-x: scroll;
+}
+
+.categories-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+}
+
+.show-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  background-color: gray;
+  height: 40px;
+  width: 175px;
+  border-radius: 25px;
+  font-size: 12px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.show-categories:hover {
+  background-color: black;
+  transition: background-color 0.2s ease-in;
+}
+
+.sc-open {
+  right: 15px;
+  bottom: 180px;
+  z-index: 25;
+  background-color: gray;
+}
+
+/* these have to be at bottom to have first priority */
 
 .Housing {
   background-color: #8fbdbb;

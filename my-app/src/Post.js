@@ -17,7 +17,9 @@ class Post extends Component {
     super(props);
     this.state = {
       goodRating: 0,
-      badRating: 0
+      badRating: 0,
+      clicked: false,
+      sent: false,
     }
   }
 
@@ -27,7 +29,8 @@ class Post extends Component {
 
     this.setState({
       goodRating: good,
-      badRating: bad
+      badRating: bad,
+      clicked: false
     })
   }
 
@@ -41,6 +44,21 @@ class Post extends Component {
     })
   }
 
+  _handleEmail = () => {
+    this.setState( (prevState) => ({
+      clicked: !prevState.clicked
+    }))
+  }
+
+  _handleSending = () => {
+    this.setState({
+      sent: true,
+    })
+    setTimeout(() => {this.setState({
+      sent: false,
+      clicked: false,
+    })}, 2000)
+  }
 
   _handleclickTop = () => {
     let good = parseInt(this.state.goodRating) + 1;
@@ -63,28 +81,78 @@ class Post extends Component {
     var postClass = classNames('post', this.props.type);
 
     return (
-      <div className={postClass}>
-        <div className="housing-label">{this.props.type}</div>
-        <div className="post-og">
-          <div className="post-text-container">
-            <img src={require(`${this.props.img}`)} className="post-pic"/>
-            <div className="post-text">
-              <div className="post-name">{this.props.name}</div>
-              <div className="post-content">{this.props.post}</div>
+      <div className="generic-container">
+        {this.state.clicked ?
+          <div className="generic-container">
+
+              {this.state.sent ?
+                <div className="send-email">
+                  <div className="send-email-container sent">
+                    <div className="sent-message">
+                      Your message has been sent.<br></br>
+                    <a href="https://l1nda.github.io/hafh/#/messages" className="href send-email-link">Click here</a> to go to messages.
+                    </div>
+                  </div>
+                </div> :
+                <div className="send-email">
+                  <FontAwesome
+                    onClick={this._handleEmail}
+                    name='times-circle'
+                    className="times-circle"
+                    size='2x'
+                    style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+                  />
+                  <div className="send-email-container">
+                    <div className="vertical-flex send-message-header">
+                      <img src={require(`${this.props.img}`)} className="send-message-pic"/>
+                      <div className="send-message-title">Message {this.props.name}</div>
+                    </div>
+                    <textarea type="text" className="send-message-text"/>
+                    <div className="send-message-button" onClick={this._handleSending}>SEND</div>
+                  </div>
+                </div>
+              }
+
+            <div className="modal"></div>
+          </div> :
+          null
+        }
+
+        <div className={postClass}>
+          <div className="housing-label">{this.props.type}</div>
+          <div className="post-og">
+            <div className="post-text-container">
+              <div className="vertical-flex post-propic">
+                <img src={require(`${this.props.img}`)} className="post-pic"/>
+              </div>
+
+              <div className="post-text">
+                <div className="horizontal-flex">
+                  <div className="post-name">{this.props.name}</div>
+                    <FontAwesome
+                      onClick={this._handleEmail}
+                      name='envelope'
+                      className="envelope"
+                      size='lg'
+                      style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+                    />
+                </div>
+                <div className="post-content">{this.props.post}</div>
+              </div>
+            </div>
+            <div className="ratings">
+              <div className="rating" type="good">{this.state.goodRating}</div>
+              <div className="triangle-top" onClick={this._handleclickTop}></div>
+              <div className="triangle-bottom" onClick={this._handleclickBottom}></div>
+              <div className="rating" type="bad">{this.state.badRating}</div>
             </div>
           </div>
-          <div className="ratings">
-            <div className="rating" type="good">{this.state.goodRating}</div>
-            <div className="triangle-top" onClick={this._handleclickTop}></div>
-            <div className="triangle-bottom" onClick={this._handleclickBottom}></div>
-            <div className="rating" type="bad">{this.state.badRating}</div>
+          <div className="post-line"></div>
+          <div className="post-response">
+            <img className="post-response-pic" src={require(`./img/stock2.jpg`)}/>
+            <input type="text" placeholder="Reply..." className="search post-reply"/>
+            <div className="postButton post-button">SEND</div>
           </div>
-        </div>
-        <div className="post-line"></div>
-        <div className="post-response">
-          <img className="post-response-pic" src={require(`./img/stock2.jpg`)}/>
-          <input type="text" placeholder="Reply..." className="search post-reply"/>
-          <div className="postButton post-button">SEND</div>
         </div>
       </div>
     )
@@ -92,3 +160,14 @@ class Post extends Component {
 }
 
 export default Post;
+
+// <div className="horizontal-flex">
+//   <div className="post-name">{this.props.name}</div>
+//     <FontAwesome
+//       onClick={this._handleEmail}
+//       name='envelope'
+//       className="envelope"
+//       size='1x'
+//       style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+//     />
+// </div>

@@ -1,0 +1,115 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.messages {
+  background-color: lightgray;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.messages-content {
+  padding: 50px 0;
+}
+
+.messages-title {
+  color: black;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+  margin: 25px 0;
+  font-size: 40px;
+  font-weight: 800;
+  border-bottom: 0.5px solid gray;
+}
+
+/* -------- MESSAGES -------- */
+
+.message {
+  background-color: white;
+  height: 225px;
+  width: 900px;
+  margin: 50px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-pic {
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-right: 25px;
+  flex-shrink: 0;
+}
+
+.message-og {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 50px 30px 50px;
+}
+
+.message-text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.message-text > div {
+  margin: 10px 0;
+}
+
+.message-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.message-label {
+  background-color: gray;
+  width: 150px;
+  height: 30px;
+  color: white;
+  border-radius: 50px;
+  font-size: 12px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  margin-bottom: -2%;
+}
+
+.message-btn {
+  color: gray;
+}
+
+.message-btn:hover {
+  color: black
+}
+
+.Housing {
+  background-color: #8fbdbb;
+  cursor: pointer;
+}
+
+.Food {
+  background-color: #f5a99b;
+  cursor: pointer;
+}

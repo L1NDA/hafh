@@ -1,0 +1,44 @@
+"posts": [
+		{ 
+		"selectedOption": "Housing",
+		"name": "Eugenio Beatriz",
+		"post": "Currently looking for a roommate for a 2 bed, 1bath apartment in the North End, message me if interested!",
+		"counter": "5",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "Food",
+		"name": "Freddie Flury",
+		"post": "Who knows where to get some dank ramen around Boston!?",
+		"counter": "count",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "Food",
+		"name": "Kapila Sameer",
+		"post": "joinedPost",
+		"counter": "Hosting a community potluck this Saturday at 3pm! Msg for more info! #Love",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "Housing",
+		"name": "Rajani Basilio",
+		"post": "joinedPost",
+		"counter": "Can anyone walk me through the leasing process? I am new to the US and Boston and would greatly appreciate help!",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "Housing",
+		"name": "Seymour Shahrukh",
+		"post": "I have a noninternational roommate who is making my life hard! Any advice on dealing with roommate troubles? We are locked in our lease for 2 more months, but I'm ready for him to leave now!",
+		"counter": "count",
+		"postImg": "img"
+	}, 
+		{ 
+		"selectedOption": "Food",
+		"name": "Micah Trees",
+		"post": "joinedPost",
+		"counter": "count",
+		"postImg": "img"
+	}, 
+]

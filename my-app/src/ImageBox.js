@@ -27,7 +27,7 @@ class ImageBox extends Component {
 
     return (
       <a href={this.props.link} className="imagebox-container">
-        <div className="ImageBox" id={this.props.CategoryName}>
+        <div id={this.props.CategoryName} className={this.props.class}>
           <div className="CategoryName">
               {this.props.CategoryName}
           </div>
@@ -38,3 +38,12 @@ class ImageBox extends Component {
 }
 
 export default ImageBox;
+
+// <a href={this.props.link} className="imagebox-container">
+//   <div className="ImageBox">
+//     <div className="CategoryName">
+//         {this.props.CategoryName}
+//     </div>
+//     <div id={this.props.CategoryName} className={this.props.class}></div>
+//   </div>
+// </a>

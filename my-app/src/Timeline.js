@@ -3,6 +3,7 @@ import classNames from "classnames";
 import "./css/timeline.css";
 import Header from './Header.js';
 import Post from './Post.js';
+import CategoriesPopup from './CategoriesPopup.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -43,6 +44,7 @@ class Timeline extends Component {
       goodRating: [],
       badRating: [],
       sorting: "Default",
+      chosen: false,
     }
   };
 
@@ -192,6 +194,12 @@ class Timeline extends Component {
     });
   }
 
+  _handleChosenClick = () => {
+    this.setState({
+      chosen: !this.state.chosen
+    })
+  }
+
   createPost = () => {
     var posts = [];
     let splited = [];
@@ -246,7 +254,20 @@ class Timeline extends Component {
       btnClass += ` ${this.state.option.label}`
     };
 
-    var options = DATA.CITIES
+    var options = DATA.CITIES;
+
+    var categories = this.state.CategoryName;
+
+    let chosen = [];
+
+    // filtering
+    if (this.state.selectValue != "") {
+      let categories = this.state.selectValue
+      categories = categories.toString();
+      chosen = categories.split(",");
+    } else {
+      chosen = ["Housing", "Food"]
+    };
 
     return (
       <HashRouter>
@@ -314,6 +335,13 @@ class Timeline extends Component {
               </div>
               {this.createPost()}
             </div>
+            {this.state.chosen ?
+              <div>
+                <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Categories</div>
+                <CategoriesPopup chosen={chosen}/>
+              </div> :
+              <div className="show-categories" onClick={this._handleChosenClick}>View Categories</div>
+            }
           </div>
         </switch>
       </HashRouter>
