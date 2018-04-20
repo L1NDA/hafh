@@ -98,6 +98,10 @@ class Post extends Component {
     })
   }
 
+  _handleclickSort = () => {
+    this.props.sort // this doesn't work b/c idk how to change the parent state from a child
+}
+
 
   render () {
 
@@ -143,7 +147,7 @@ class Post extends Component {
         }
 
         <div className={postClass}>
-          <div className="housing-label">{this.props.type}</div>
+          <div className="housing-label" onClick={this._handleclickSort}>{this.props.type}</div>
             <FontAwesome
               name='star'
               className={starClass}
