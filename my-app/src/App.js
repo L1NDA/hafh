@@ -11,6 +11,7 @@ import Info from './Info.js';
 import Info2 from './Info2.js';
 import Messages from './Messages.js';
 import Profile from './Profile.js';
+import ProfileSara from './ProfileSara.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -44,6 +45,7 @@ class App extends Component {
             <Route path="/food" exact component={Info2}/>
             <Route path="/messages" exact component={Messages}/>
             <Route path="/profile" exact component={Profile}/>
+            <Route path="/sara" exact component={ProfileSara}/>
           </Switch>
         </HashRouter>
       </div>
