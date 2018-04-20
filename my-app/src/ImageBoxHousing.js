@@ -38,7 +38,7 @@ class ImageBox extends Component {
     render() {
 
     return (
-      <div className="generic-container">
+      <div className="generic-container" onClick={this.props.handleCategoryFunctionChild}>
         {this.state.info ?
           <div className="generic-container">
             <div className="info-modal">

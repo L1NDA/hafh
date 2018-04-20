@@ -23,8 +23,8 @@ class CategoriesPopup extends Component {
           CategoryName: ["Food", "Housing", "Legal", "Education"],
         }
     }
-
     // <a href={this.props.link} className="imagebox-container">
+
 
     render() {
 
@@ -41,14 +41,12 @@ class CategoriesPopup extends Component {
       };
     }
 
-    console.log("categories", categoriesClassNames);
-
     return (
         <div className="categories-scroll">
-            <ImageBoxFood onClick={this.handleClick} class={categoriesClassNames[0]} CategoryName={categories[0]}/>
-            <ImageBoxHousing onClick={this.handleClick} class={categoriesClassNames[1]} CategoryName={categories[1]}/>
-            <ImageBox onClick={this.handleClick} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
-            <ImageBox onClick={this.handleClick} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
+            <ImageBoxFood handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[0]} CategoryName={categories[0]}/>
+            <ImageBoxHousing handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[1]} CategoryName={categories[1]}/>
+            <ImageBox handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
+            <ImageBox handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
         </div>
     );
   }

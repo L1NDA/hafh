@@ -33,12 +33,16 @@ class ImageBox extends Component {
       localStorage.setItem("selectValueFood", JSON.stringify(this.state.selectValue))
     }
 
+    test = () => {
+      console.log("testes")
+    }
+
     // <a href={this.props.link} className="imagebox-container">
 
     render() {
 
     return (
-      <div className="generic-container">
+      <div className="generic-container" onClick={this.props.handleCategoryFunctionChild}>
         {this.state.info ?
           <div className="generic-container">
             <div className="info-modal">

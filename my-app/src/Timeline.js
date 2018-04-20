@@ -29,6 +29,9 @@ const topics = [
 class Timeline extends Component {
   constructor (props) {
     super(props);
+
+    this.handleCategory = this.handleCategory.bind(this);
+
     this.state = {
 
       // selectedOption: ["Housing","Food"],
@@ -373,23 +376,39 @@ class Timeline extends Component {
     })
   }
 
+  handleCategory = () => {
+    console.log("change parent!!!!!!!!!!!!!!!!!!!!!!!!!");
+  }
+
   createPost = () => {
     var posts = [];
     let splited = [];
 
-    // filtering
-    if (this.state.selectValue != "") {
-      let categories = this.state.selectValue
-      categories = categories.toString();
-      splited = categories.split(",");
-    } else {
-      splited = ["Housing", "Legal", "Food", "Education"]
-    }
+    let categories = this.state.selectValue
+    categories = categories.toString();
+    splited = categories.split(",");
 
     console.log("selectValue", splited);
-    console.log("create fave", this.state.favorited);
 
-    for (var i = 0; i < this.state.counter; i++) {
+    // for (var i = 0; i < this.state.counter; i++) {
+    //   if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
+    //     posts.push(<Post
+    //       img={this.state.postImg[i]}
+    //       type={this.state.selectedOption[i]}
+    //       name={this.state.name[i]}
+    //       post={this.state.post[i]}
+    //       key={i}
+    //       good={this.state.goodRating[i]}
+    //       bad={this.state.badRating[i]}
+    //       favorited={this.state.favorited[i]}
+    //       handleCategoryFunction={this.handleCategory}
+    //     />)
+    //   }
+    // }
+
+    console.log("counter", this.state.counter);
+
+    this.state.postLocation.map((location, i) => {
       if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
         posts.push(<Post
           img={this.state.postImg[i]}
@@ -402,7 +421,7 @@ class Timeline extends Component {
           favorited={this.state.favorited[i]}
         />)
       }
-    }
+    });
 
     return posts
   }
@@ -440,6 +459,8 @@ class Timeline extends Component {
     } else {
       chosen = ["Housing", "Food"]
     };
+
+    console.log("category function", this.handleCategory);
 
     return (
       <HashRouter>
@@ -503,7 +524,7 @@ class Timeline extends Component {
             {this.state.chosen ?
               <div>
                 <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Topics</div>
-                <CategoriesPopup chosen={chosen}/>
+                <CategoriesPopup chosen={chosen} handleCategoryFunction={this.handleCategory}/>
               </div> :
               <div className="show-categories" onClick={this._handleChosenClick}>View Topic Tags</div>
             }
