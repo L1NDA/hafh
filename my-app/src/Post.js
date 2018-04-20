@@ -33,7 +33,8 @@ class Post extends Component {
       favorited: favorite,
       goodRating: good,
       badRating: bad,
-      clicked: false
+      clicked: false,
+      voted: false 
     })
   }
 
@@ -67,21 +68,28 @@ class Post extends Component {
   }
 
   _handleclickTop = () => {
-    let good = parseInt(this.state.goodRating) + 1;
+      if(!this.state.voted){
 
-    this.setState({
-      goodRating: good,
-    })
-    this.props.saveStuff;
+      let good = parseInt(this.state.goodRating) + 1;
+
+      this.setState({
+        goodRating: good,
+        voted: true,
+      })
+      this.props.saveStuff;
+    }
   }
 
   _handleclickBottom = () => {
-    let bad = parseInt(this.state.badRating) + 1;
+      if(!this.state.voted){
+      let bad = parseInt(this.state.badRating) + 1;
 
-    this.setState({
-      badRating: bad,
-    })
-    this.props.saveStuff;
+      this.setState({
+        badRating: bad,
+        voted: true,
+      })
+      this.props.saveStuff;
+    }
   }
 
   _handleFavorites = () => {
