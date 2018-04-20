@@ -11,7 +11,7 @@ html {
   box-sizing: inherit;
 }
 
-.head{
+.profile-title {
   position: relative;
   bottom: 100px;
   font-size: 20px;
@@ -29,20 +29,64 @@ html {
 
 }
 
-.signup {
+.profile {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
 }
 
-.signup-title {
+.profile-back {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: gray;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-back > * {
+  margin: 10px;
+}
+
+.profile-back:hover {
+  color: black;
+}
+
+.profile-name {
   font-size: 30px;
   font-weight: 600;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: black;
   margin: 30px;
+}
+
+.profile-pic {
+  margin: 0;
+  margin-top: -100px;
+  z-index: 25;
+}
+
+.profile-table {
+  margin-left: -25px;
+}
+
+.profile-topic {
+  width: 80px;
+  font-weight: 400;
+  font-size: 13px;
+  text-align: right;
+  padding: 10px;
+}
+
+.profile-content {
+  text-align: left;
+  font-weight: 300;
+  font-size: 13px;
+  vertical-align: top;
+  padding: 10px;
 }
 
 .signup-formControl {
@@ -62,10 +106,9 @@ html {
   border-bottom: 2px solid black;
 }
 
-.signup-form {
+.profile-info {
   width: 400px;
-  height: 500px;
-  overflow: scroll;
+  height: 400px;
   padding: 30px;
   background-color: white;
   /* display: flex;
@@ -74,14 +117,13 @@ html {
   flex-direction: column; */
   margin: 0;
   border-radius: 15px;
-  margin-top: -50px;
   text-align: center;
+  z-index: 20;
 }
 
 .form-inner {
   margin: auto;
   width: 80%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;

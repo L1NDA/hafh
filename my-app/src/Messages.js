@@ -51,7 +51,7 @@ class Messages extends Component {
       <HashRouter>
         <switch>
           <div className="messages">
-            <Header button1="PROFILE" button2="LOG OUT" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
+            <Header button1="profile" button2="log out" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
             <div className="messages-content">
               <div className="messages-title">YOUR MESSAGES</div>
               {this.createMessages()}

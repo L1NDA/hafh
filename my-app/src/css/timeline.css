@@ -183,7 +183,26 @@ html {
   align-items: center;
   justify-content: center;
   margin: 40px;
+  margin-right: 100px;
   margin-bottom: -2%;
+}
+
+.star {
+  align-self: flex-end;
+  margin-right: 50px;
+  color: white;
+}
+
+.star:hover {
+  color: black;
+}
+
+.favorite {
+  color: black;
+}
+
+.favorite:hover {
+  color: white;
 }
 
 .post-line {

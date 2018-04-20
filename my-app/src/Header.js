@@ -32,7 +32,10 @@ class Header extends Component {
             <a href="https://l1nda.github.io/hafh/#/messages" className="href categories-link">messages</a>
             : null
           }
-          <HeaderButton text={this.props.button1}/>
+          {this.props.loggedIn ?
+            <a href="https://l1nda.github.io/hafh/#/profile" className="href"><HeaderButton text={this.props.button1}/></a>
+            : <HeaderButton text={this.props.button1}/>
+          }
           <a href={this.props.link} className="href"><HeaderButton text={this.props.button2}/></a>
         </div>
       </div>

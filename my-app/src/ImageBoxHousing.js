@@ -29,6 +29,10 @@ class ImageBox extends Component {
       })
     }
 
+    componentDidUpdate = () => {
+      localStorage.setItem("selectValueHousing", JSON.stringify(this.state.selectValue))
+    }
+
     // <a href={this.props.link} className="imagebox-container">
 
     render() {

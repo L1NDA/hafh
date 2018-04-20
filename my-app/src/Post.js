@@ -27,9 +27,10 @@ class Post extends Component {
   componentWillMount = () => {
     let good = this.props.good;
     let bad = this.props.bad;
-    console.log("called");
+    let favorite = this.props.favorited;
 
     this.setState({
+      favorited: favorite,
       goodRating: good,
       badRating: bad,
       clicked: false
@@ -39,11 +40,14 @@ class Post extends Component {
   componentWillReceiveProps = (nextProps) => {
     let good = nextProps.good;
     let bad = nextProps.bad;
+    let favorite = nextProps.favorited;
 
     this.setState({
+      favorited: favorite,
       goodRating: good,
       badRating: bad
     })
+    console.log("done");
   }
 
   _handleEmail = () => {
@@ -80,11 +84,24 @@ class Post extends Component {
     this.props.saveStuff;
   }
 
+  _handleFavorites = () => {
+    this.setState({
+      favorited: !this.state.favorited
+    })
+  }
 
 
   render () {
 
     var postClass = classNames('post', this.props.type);
+    var starClass = classNames('star');
+    { this.state.favorited ?
+      starClass += " favorite" :
+      null
+    }
+
+    console.log("favorited", this.props.favorited);
+    console.log("favorited state", this.state.favorited);
 
     return (
       <div className="generic-container">
@@ -119,6 +136,13 @@ class Post extends Component {
 
         <div className={postClass}>
           <div className="housing-label">{this.props.type}</div>
+            <FontAwesome
+              name='star'
+              className={starClass}
+              size='lg'
+              onClick={this._handleFavorites}
+              style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+            />
           <div className="post-og">
             <div className="post-text-container">
               <div className="vertical-flex post-propic">

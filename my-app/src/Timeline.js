@@ -49,7 +49,8 @@ class Timeline extends Component {
   };
 
   _generateNumber = () => {
-    return Math.floor(Math.random() * (50));
+    let num = Math.floor(Math.random() * (50));
+    return num;
   }
 
   componentWillMount = () => {
@@ -57,47 +58,88 @@ class Timeline extends Component {
     if(JSON.parse(localStorage.getItem("posts"))){
 
     this.setState({
-      selectedOption: JSON.parse(localStorage.getItem("selectedoption")),
-      option: "",
-      postImg: JSON.parse(localStorage.getItem("postimgs")),
-      myImg: "stock2",
-      name: JSON.parse(localStorage.getItem("names")),
-      post: JSON.parse(localStorage.getItem("posts")),
       counter: JSON.parse(localStorage.getItem("counter")),
-      inputValue: "",
-      selectValue: [],
-      postLocation: JSON.parse(localStorage.getItem("postLocation")),
-      selectValueCity: JSON.parse(localStorage.getItem("selectValueCity")),
+      selectValue: JSON.parse(localStorage.getItem("selectValue")),
+    }, function() {
+
+
+      let good = [];
+      let bad = [];
+      let falseFavorites = [false, true];
+
+      for (var i = 0; i < this.state.counter; i++) {
+        good.push(this._generateNumber());
+        bad.push(this._generateNumber());
+      }
+
+      for (var i = 0; i < this.state.counter - 2; i++) {
+        falseFavorites.push(false);
+      }
+
+      this.setState({
+        goodRating: good,
+        badRating: bad,
+        favorited: falseFavorites
+      })
+
+      // doing these later b/c they're not time dependent, while the others are
+      this.setState({
+        selectedOption: JSON.parse(localStorage.getItem("selectedoption")),
+        option: "",
+        postImg: JSON.parse(localStorage.getItem("postimgs")),
+        myImg: "stock2",
+        name: JSON.parse(localStorage.getItem("names")),
+        post: JSON.parse(localStorage.getItem("posts")),
+        counter: JSON.parse(localStorage.getItem("counter")),
+        inputValue: "",
+        postLocation: JSON.parse(localStorage.getItem("postLocation")),
+        selectValueCity: JSON.parse(localStorage.getItem("selectValueCity")),
+        loaded: true
+      })
     })}
 
     else{
       this.setState({
-      selectedOption: ["Housing", "Food", "Legal", "Education"],
-      option: "",
-      postImg: ["./img/stock.jpeg", "./img/stock.jpeg"],
-      myImg: "stock2",
-      name: ["Sara Zandvakilli","Sara Zandvakilli"],
-      post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "Yamatos is a really great place for a sushi buffet, but a little pricy."],
-      counter: 2,
-      inputValue: "",
-      selectValue: [],
-      postLocation: ["Boston", "Boston"],
-      selectValueCity: "Boston",
-    })
+        selectedOption: ["Housing", "Food", "Legal", "Education"],
+        option: "",
+        postImg: ["./img/stock.jpeg", "./img/stock.jpeg"],
+        myImg: "stock2",
+        name: ["Sara Zandvakilli","Sara Zandvakilli"],
+        post: ["Does anybody have recommendations as to which neighborhood I should choose/the safety of Boston neighborhoods?", "The Lamont vending machine at Harvard has some surprisingly quality hummus."],
+        counter: 2,
+        inputValue: "",
+        selectValue: ["Housing", "Food", "Legal", "Education"],
+        postLocation: ["Boston", "Boston"],
+        selectValueCity: "Boston",
+        favorited: [false, true]
+      }, function() {
+        this.saveStuff();
+
+        let good = [];
+        let bad = [];
+        let falseFavorites = [false, true];
+
+        for (var i = 0; i < this.state.counter; i++) {
+          good.push(this._generateNumber());
+          bad.push(this._generateNumber());
+        }
+
+        for (var i = 0; i < this.state.counter - 2; i++) {
+          falseFavorites.push(false);
+        }
+
+        this.setState({
+          goodRating: good,
+          badRating: bad,
+          favorited: falseFavorites,
+          loaded: true
+        })
+
+        return
+      })
+
     }
 
-    let good = [];
-    let bad = []
-
-    for (var i = 0; i < 2; i++) {
-      good.push(this._generateNumber());
-      bad.push(this._generateNumber());
-    }
-
-    this.setState({
-      goodRating: good,
-      badRating: bad
-    })
   }
 
   componentDidUpdate = () => {
@@ -112,6 +154,7 @@ class Timeline extends Component {
   localStorage.setItem("postimgs", JSON.stringify(this.state.postImg))
   localStorage.setItem("selectedoption", JSON.stringify(this.state.selectedOption))
   localStorage.setItem("postLocation", JSON.stringify(this.state.postLocation))
+  localStorage.setItem("selectValue", JSON.stringify(this.state.selectValue))
   localStorage.setItem("selectValueCity", JSON.stringify(this.state.selectValueCity))
   }
 
@@ -133,9 +176,10 @@ class Timeline extends Component {
         };
 
         let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
-        console.log("Highest Rated", sortedRatings);
-        this.sortPostsRatings(sortedRatings);
-      } else {
+        this.sortPostsRatings(sortedRatings, length);
+      }
+
+      else if (option.label === "Most Popular") {
         let totalRatingsArray = [];
         let length = this.state.goodRating.length;
 
@@ -146,16 +190,96 @@ class Timeline extends Component {
         };
 
         let sortedRatings = totalRatingsArray.sort(function(a,b){return b[0] - a[0]});
-        console.log("sortedRatings", sortedRatings);
-        this.sortPostsRatings(sortedRatings);
+        this.sortPostsRatings(sortedRatings, length);
+      }
+
+      else if (option.label === "Favorites First") {
+        console.log("favorites state", this.state.favorited);
+        let totalArray = [];
+        let length = this.state.favorited.length;
+        let favoritesCounter = 0;
+
+        let sortedArray = [];
+
+        let OptionArray = []
+        let NameArray = []
+        let PostArray = []
+        let ImgArray = []
+        let GoodArray = [];
+        let BadArray = [];
+        let CityArray = [];
+        let FaveArray = [];
+
+        for (var i = 0; i < length; i++) {
+          if (this.state.favorited[i] === true) {
+            let tuple = [0, i];
+
+            var Option = `${this.state.selectedOption[i]}`;
+            var Name = `${this.state.name[i]}`;
+            var Post = `${this.state.post[i]}`;
+            var Img = `${this.state.postImg[i]}`;
+            var Good = `${this.state.goodRating[i]}`;
+            var Bad = `${this.state.badRating[i]}`;
+            var City = `${this.state.postLocation[i]}`;
+            var Fave = this.state.favorited[i];
+
+            OptionArray.push(Option);
+            NameArray.push(Name);
+            PostArray.push(Post);
+            ImgArray.push(Img);
+            GoodArray.push(Good);
+            BadArray.push(Bad);
+            CityArray.push(City);
+            FaveArray.push(Fave);
+          }
+        };
+
+        for (var i = 0; i < length; i++) {
+          if (this.state.favorited[i] === false) {
+            let tuple = [0, i];
+
+            var Option = `${this.state.selectedOption[i]}`;
+            var Name = `${this.state.name[i]}`;
+            var Post = `${this.state.post[i]}`;
+            var Img = `${this.state.postImg[i]}`;
+            var Good = `${this.state.goodRating[i]}`;
+            var Bad = `${this.state.badRating[i]}`;
+            var City = `${this.state.postLocation[i]}`;
+            var Fave = this.state.favorited[i];
+
+            OptionArray.push(Option);
+            NameArray.push(Name);
+            PostArray.push(Post);
+            ImgArray.push(Img);
+            GoodArray.push(Good);
+            BadArray.push(Bad);
+            CityArray.push(City);
+            FaveArray.push(Fave);
+          }
+        };
+
+        console.log("favorites array", FaveArray);
+
+        this.setState({
+          selectedOption: OptionArray,
+          name: NameArray,
+          post: PostArray,
+          postImg: ImgArray,
+          goodRating: GoodArray,
+          badRating: BadArray,
+          postLocation: CityArray,
+          favorited: FaveArray
+        }, function() {
+          console.log("state", this.state);
+          this.createPost();
+        })
       }
       this.setState({ sorting: option });
     }
 
   }
 
-  sortPostsRatings = (sortedRatings) => {
-    console.log("new var", sortedRatings);
+  sortPostsRatings = (sortedRatings, counter) => {
 
 
     let sortedArray = [];
@@ -167,11 +291,9 @@ class Timeline extends Component {
     let GoodArray = [];
     let BadArray = [];
     let CityArray = [];
+    let FaveArray = [];
 
-    let length = this.state.goodRating.length
-    console.log("length", this.state.goodRating.length);
-
-    for (var i = 0; i < length; i++) {
+    for (var i = 0; i < counter; i++) {
       var Option = `${this.state.selectedOption[sortedRatings[i][1]]}`;
       var Name = `${this.state.name[sortedRatings[i][1]]}`;
       var Post = `${this.state.post[sortedRatings[i][1]]}`;
@@ -179,6 +301,7 @@ class Timeline extends Component {
       var Good = `${this.state.goodRating[sortedRatings[i][1]]}`;
       var Bad = `${this.state.badRating[sortedRatings[i][1]]}`;
       var City = `${this.state.postLocation[sortedRatings[i][1]]}`;
+      var Fave = this.state.favorited[sortedRatings[i][1]];
 
       OptionArray.push(Option);
       NameArray.push(Name);
@@ -187,6 +310,7 @@ class Timeline extends Component {
       GoodArray.push(Good);
       BadArray.push(Bad);
       CityArray.push(City);
+      FaveArray.push(Fave);
     }
 
     this.setState({
@@ -197,8 +321,9 @@ class Timeline extends Component {
       goodRating: GoodArray,
       badRating: BadArray,
       postLocation: CityArray,
+      favorited: FaveArray,
     }, function() {
-      console.log(this.state);
+      console.log("state", this.state);
       this.createPost();
     });
   }
@@ -212,7 +337,6 @@ class Timeline extends Component {
 	}
 
   _handleClick = () => {
-    console.log("clicked");
 
     var Option = [`${this.state.option.label}`]
     var Name = [`Manny Xiao`]
@@ -263,11 +387,9 @@ class Timeline extends Component {
     }
 
     console.log("selectValue", splited);
+    console.log("create fave", this.state.favorited);
 
     for (var i = 0; i < this.state.counter; i++) {
-      console.log("create post good", this.state.goodRating[i]);
-      console.log("create post bad", this.state.badRating[i]);
-      console.log("create post name", this.state.name[i]);
       if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
         posts.push(<Post
           img={this.state.postImg[i]}
@@ -277,6 +399,7 @@ class Timeline extends Component {
           key={i}
           good={this.state.goodRating[i]}
           bad={this.state.badRating[i]}
+          favorited={this.state.favorited[i]}
         />)
       }
     }
@@ -291,7 +414,6 @@ class Timeline extends Component {
   }
 
   updateValue = (newValue) => {
-    console.log("newValue", newValue);
 		this.setState({
 			selectValueCity: newValue
 		});
@@ -323,8 +445,11 @@ class Timeline extends Component {
       <HashRouter>
         <switch>
           <div className="timeline">
-            <Header button1="PROFILE" button2="LOG OUT" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
+            <Header button1="profile" button2="log out" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
+
+          { this.state.loaded ?
             <div className="timeline-content">
+
               <div className="search-bar">
                 <input type="text" placeholder="Make a post!" className="search" onChange={evt => this.updateInputValue(evt)}/>
                 <Select
@@ -367,12 +492,14 @@ class Timeline extends Component {
                   options={[
                     { value: 'two', label: 'Highest Rated' },
                     { value: 'three', label: 'Most Popular' },
+                    { value: 'one', label: "Favorites First"}
                   ]}
                 />
 
               </div>
               {this.createPost()}
-            </div>
+            </div> :
+            <div>Loading...</div> }
             {this.state.chosen ?
               <div>
                 <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Topics</div>
