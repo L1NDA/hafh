@@ -6,6 +6,8 @@ import ImgRoot from "./img/heart.png";
 import ImageBox from './ImageBox.js';
 import ImageBoxFood from './ImageBoxFood.js';
 import ImageBoxHousing from './ImageBoxHousing.js';
+import ImageBoxLegal from './ImageBoxLegal.js';
+import ImageBoxEducation from './ImageBoxEducation.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -45,8 +47,8 @@ class CategoriesPopup extends Component {
         <div className="categories-scroll">
             <ImageBoxFood handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[0]} CategoryName={categories[0]}/>
             <ImageBoxHousing handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[1]} CategoryName={categories[1]}/>
-            <ImageBox handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
-            <ImageBox handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
+            <ImageBoxLegal handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
+            <ImageBoxEducation handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
         </div>
     );
   }
