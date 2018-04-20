@@ -39,7 +39,7 @@ class Message extends Component {
               <div className="message-content">{this.props.post}</div>
             </div>
           </div>
-          <a href={"https://l1nda.github.io/hafh/#/messages-" + this.props.key} className="message-btn">
+          <a href={"https://l1nda.github.io/hafh/#/message-sara"} className="message-btn">
               <FontAwesome
                 name='angle-right'
                 size='3x'

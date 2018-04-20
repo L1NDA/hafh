@@ -459,7 +459,7 @@ class Timeline extends Component {
     let chosen = [];
 
     // filtering
-    if (this.state.selectValue != "") {
+    if (this.state.selectValue !== "") {
       let categories = this.state.selectValue
       categories = categories.toString();
       chosen = categories.split(",");

@@ -12,6 +12,7 @@ import Info2 from './Info2.js';
 import Messages from './Messages.js';
 import Profile from './Profile.js';
 import ProfileSara from './ProfileSara.js';
+import MessageSara from './MessageSara.js';
 import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -46,6 +47,7 @@ class App extends Component {
             <Route path="/messages" exact component={Messages}/>
             <Route path="/profile" exact component={Profile}/>
             <Route path="/sara" exact component={ProfileSara}/>
+            <Route path="/message-sara" exact component={MessageSara}/>
           </Switch>
         </HashRouter>
       </div>

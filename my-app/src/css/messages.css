@@ -24,6 +24,8 @@ html {
 
 .messages-content {
   padding: 50px 0;
+  width: 100%;
+  position: relative;
 }
 
 .messages-title {
@@ -109,12 +111,33 @@ html {
   color: black
 }
 
+.message-sara {
+  height: 400px;
+}
+
+.flex-between {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 0;
+}
+
+.message-propic-container {
+  margin: 0 !important;
+}
+
+.message-propic {
+  height: 70px;
+  width: 70px;
+  margin-left: 25px;
+}
+
 .Housing {
   background-color: #8fbdbb;
-  cursor: pointer;
 }
 
 .Food {
   background-color: #f5a99b;
-  cursor: pointer;
 }
