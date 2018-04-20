@@ -376,8 +376,22 @@ class Timeline extends Component {
     })
   }
 
-  handleCategory = () => {
-    console.log("change parent!!!!!!!!!!!!!!!!!!!!!!!!!");
+  handleCategory = (name) => {
+    let tempSelectValue = this.state.selectValue
+    let index = tempSelectValue.indexOf(name);
+    if (index > -1) {
+      tempSelectValue.splice(index, 1);
+    } else {
+      tempSelectValue.push(name);
+    }
+
+    this.setState({
+      selectValue: tempSelectValue
+    }, function() {
+      console.log("changed VALUE", this.state.selectValue);
+    })
+
+    this.saveStuff();
   }
 
   createPost = () => {

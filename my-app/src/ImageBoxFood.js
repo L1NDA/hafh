@@ -37,12 +37,16 @@ class ImageBox extends Component {
       console.log("testes")
     }
 
+    handleClick = () => {
+      this.props.handleCategoryFunctionChild(this.props.CategoryName);
+    }
+
     // <a href={this.props.link} className="imagebox-container">
 
     render() {
 
     return (
-      <div className="generic-container" onClick={this.props.handleCategoryFunctionChild}>
+      <div className="generic-container" onClick={this.handleClick}>
         {this.state.info ?
           <div className="generic-container">
             <div className="info-modal">
