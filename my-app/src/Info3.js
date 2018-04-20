@@ -31,23 +31,15 @@ class Info2 extends Component {
       <Header button1="PROFILE" button2="LOG OUT" link="https://l1nda.github.io/hafh/#/"/>
 
           <div className="info-box">
-              <div className="info-title">What to Expect When Looking for Food</div>
+              <div className="info-title">What to Expect When Looking for Education</div>
               <form className="body">
-                  Several factors are typically considered when people search for foods, including <b>cost</b> and <b>store location</b>.<br/>
+                  Several factors are typically considered when people search for Education including <b>cost</b> and <b>accessibility</b>.<br/>
                   <br/>
-                  The average cost to eat per  <input type="text" className="frequency" placeholder="month"></input> in Boston is <b>$___</b>.
-                  You may find that the most affordable option is to cook your meals at home.<br/>
+                  The average cost of tuition at a <input type="text" className="type" placeholder="public"></input>  University in Boston is <b>$___</b>.
+                  You may find that the most affordable option is to take classes online.<br/>
                   <br/>
-                  Immigrants in the <b>Chinese</b> community frequently eat and purchase groceries in <b>Quincy, Malden, Acton, Newton, and Lexington</b>.
-                  <Iframe
-                      url="https://www.google.com/maps/embed/v1/place?key=AIzaSyAH5uMfQyfWXcmc9WW41XNKdRMyTuzsuHk
-    &q=Space+Needle,Seattle+WA"
-                      width="450"
-                      height="450"
-                      frameborder="0" style="border:0"
-                      display="initial"
-                      position="relative"
-                      allowfullscreen/>
+                  Less than 20% of Immigrants have a college degree.
+
               </form>
           </div>
         </div>
