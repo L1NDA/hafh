@@ -8,7 +8,7 @@ import Header from './Header.js';
 import { HashRouter } from 'react-router-dom';
 import "./css/profile.css";
 import 'react-datepicker/dist/react-datepicker.css';
-import profpic from "./img/stock2.jpg"
+import profpic from "./img/stock.jpeg"
 
 
 import {
@@ -18,7 +18,7 @@ import {
   Switch
 } from 'react-router-dom';
 
-class Profile extends Component {
+class ProfileSara extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -50,14 +50,15 @@ class Profile extends Component {
                 <img src={profpic} className="post-pic"/>
               </div>
 
-              <div className="form-inner">
-              <div className="profile-name">Manny Xiao</div>
+              <div className="profile-inner">
+              <div className="profile-name">Sara Zandvakilli</div>
 
                 <table className="profile-table">
                   <tbody>
                     <tr>
                       <td className="profile-topic">BIO</td>
-                      <td className="profile-content">Hi, I'm Manny.</td>
+                      <td className="profile-content">I love to meet new people and hope I can meet you someday!
+                      I miss my home country very much, and reconnecting with other immigrants from Israel helps me keep in touch with my past.</td>
                     </tr>
                     <tr>
                       <td className="profile-topic">COUNTRY OF ORIGIN</td>
@@ -65,7 +66,7 @@ class Profile extends Component {
                     </tr>
                     <tr>
                       <td className="profile-topic">YEARS IN THE US</td>
-                      <td className="profile-content">5</td>
+                      <td className="profile-content">3</td>
                     </tr>
                     <tr>
                       <td className="profile-topic">STATE OF RESIDENCE</td>
@@ -84,4 +85,4 @@ class Profile extends Component {
     )
   }
 }
-export default Profile;
+export default ProfileSara;

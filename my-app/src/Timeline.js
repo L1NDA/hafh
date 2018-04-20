@@ -342,7 +342,7 @@ class Timeline extends Component {
   _handleClick = () => {
 
     var Option = [`${this.state.option.label}`]
-    var Name = [`Manny Xiao`]
+    var Name = [`Manny Cohen`]
     var Post = [`${this.state.inputValue}`]
     var Img = ["./img/stock2.jpg"]
     var Good = [0];
@@ -409,6 +409,12 @@ class Timeline extends Component {
     console.log("counter", this.state.counter);
 
     this.state.postLocation.map((location, i) => {
+      let url = "";
+      if (this.state.name[i] === "Manny Cohen") {
+        url = "https://l1nda.github.io/hafh/#/profile"
+      } else {
+        url = "https://l1nda.github.io/hafh/#/sara"
+      }
       if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
         posts.push(<Post
           img={this.state.postImg[i]}
@@ -419,6 +425,7 @@ class Timeline extends Component {
           good={this.state.goodRating[i]}
           bad={this.state.badRating[i]}
           favorited={this.state.favorited[i]}
+          url={url}
         />)
       }
     });

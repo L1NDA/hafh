@@ -50,7 +50,7 @@ class Profile extends Component {
                 <img src={profpic} className="post-pic"/>
               </div>
 
-              <div className="form-inner">
+              <div className="profile-inner">
               <div className="profile-name">Manny Xiao</div>
 
                 <table className="profile-table">

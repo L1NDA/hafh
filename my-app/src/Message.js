@@ -31,7 +31,9 @@ class Message extends Component {
         <div className={type}>{this.props.type}</div>
         <div className="message-og">
           <div className="message-text-container">
-            <img src={require(`${this.props.img}`)} className="message-pic"/>
+            <a href="https://l1nda.github.io/hafh/#/sara" className="href">
+              <img src={require(`${this.props.img}`)} className="message-pic"/>
+            </a>
             <div className="message-text">
               <div className="message-name">{this.props.name}</div>
               <div className="message-content">{this.props.post}</div>

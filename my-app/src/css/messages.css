@@ -57,6 +57,11 @@ html {
   flex-shrink: 0;
 }
 
+.message-pic:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease-in;
+}
+
 .message-og {
   display: flex;
   flex-direction: row;

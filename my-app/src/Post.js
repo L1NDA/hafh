@@ -146,7 +146,9 @@ class Post extends Component {
           <div className="post-og">
             <div className="post-text-container">
               <div className="vertical-flex post-propic">
-                <img src={require(`${this.props.img}`)} className="post-pic"/>
+                <a href={this.props.url} className="href">
+                  <img src={require(`${this.props.img}`)} className="post-pic"/>
+                </a>
               </div>
 
               <div className="post-text">
@@ -172,7 +174,9 @@ class Post extends Component {
           </div>
           <div className="post-line"></div>
           <div className="post-response">
-            <img className="post-response-pic" src={require(`./img/stock2.jpg`)}/>
+            <a href="https://l1nda.github.io/hafh/#/profile" className="href">
+              <img className="post-response-pic" src={require(`./img/stock2.jpg`)}/>
+            </a>
             <input type="text" placeholder="Reply..." className="search post-reply"/>
             <div className="postButton post-button">SEND</div>
           </div>

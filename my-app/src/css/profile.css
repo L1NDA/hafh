@@ -79,6 +79,7 @@ html {
   font-size: 13px;
   text-align: right;
   padding: 10px;
+  vertical-align: top;
 }
 
 .profile-content {
@@ -87,6 +88,17 @@ html {
   font-size: 13px;
   vertical-align: top;
   padding: 10px;
+}
+
+.profile-inner {
+  overflow-y: scroll;
+  margin: auto;
+  padding: 0 25px 25px 25px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .signup-formControl {
