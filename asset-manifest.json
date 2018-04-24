@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.d0f91471.css",
-  "main.css.map": "static/css/main.d0f91471.css.map",
-  "main.js": "static/js/main.ef6462b8.js",
-  "main.js.map": "static/js/main.ef6462b8.js.map",
+  "main.css": "static/css/main.9ee26b5b.css",
+  "main.css.map": "static/css/main.9ee26b5b.css.map",
+  "main.js": "static/js/main.057ad032.js",
+  "main.js.map": "static/js/main.057ad032.js.map",
   "static/media/education.jpg": "static/media/education.94c6ce93.jpg",
   "static/media/food.jpg": "static/media/food.9d9ca31d.jpg",
   "static/media/heart.png": "static/media/heart.093df1fc.png",
@@ -12,5 +12,11 @@
   "static/media/message.png": "static/media/message.751be37d.png",
   "static/media/stock.jpeg": "static/media/stock.b884be07.jpeg",
   "static/media/stock2.jpg": "static/media/stock2.5588f087.jpg",
+  "static/media/stock3.jpg": "static/media/stock3.738c6f50.jpg",
+  "static/media/stock4.jpg": "static/media/stock4.70ce88d2.jpg",
+  "static/media/stock5.jpg": "static/media/stock5.01df42ed.jpg",
+  "static/media/stock6.jpg": "static/media/stock6.34851cbe.jpg",
+  "static/media/stock7.jpg": "static/media/stock7.d510b801.jpg",
+  "static/media/stock8.jpg": "static/media/stock8.3e859acd.jpg",
   "static/media/video.scss": "static/media/video.1f9c974d.scss"
 }
