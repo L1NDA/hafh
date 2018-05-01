@@ -51,13 +51,13 @@ class Profile extends Component {
               </div>
 
               <div className="profile-inner">
-              <div className="profile-name">Manny Xiao</div>
+              <div className="profile-name">Jane Xiao</div>
 
                 <table className="profile-table">
                   <tbody>
                     <tr>
                       <td className="profile-topic">BIO</td>
-                      <td className="profile-content">Hi, I'm Manny.</td>
+                      <td className="profile-content">Hi, I'm Jane.</td>
                     </tr>
                     <tr>
                       <td className="profile-topic">COUNTRY OF ORIGIN</td>
