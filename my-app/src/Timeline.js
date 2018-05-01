@@ -19,13 +19,6 @@ import 'react-virtualized-select/styles.css';
 
 const DATA = require('./cities.js');
 
-const topics = [
-{ label: 'Housing', value: 'Housing' },
-{ label: 'Food', value: 'Food' },
-{ label: 'Legal', value: 'Legal' },
-{ label: 'Education', value: 'Education' },
-];
-
 class Timeline extends Component {
   constructor (props) {
     super(props);
@@ -46,7 +39,7 @@ class Timeline extends Component {
       // goodRating:[5,1],
       // badRating:[1,10],
       chosen: false,
-
+      filterValue: "",
     }
 
   };
@@ -97,7 +90,7 @@ class Timeline extends Component {
         inputValue: "",
         postLocation: JSON.parse(localStorage.getItem("postLocation")),
         selectValueCity: JSON.parse(localStorage.getItem("selectValueCity")),
-        loaded: true
+        loaded: true,
       })
     })}
 
@@ -334,7 +327,7 @@ class Timeline extends Component {
   handleSelectChange = (value) => {
 		// console.log('You\'ve selected:', this.state.selectValue);
     // console.log("value", value);
-		this.setState({ selectValue: value }, function(){
+		this.setState({ filterValue: value }, function(){
       this.createPost();
     });
 	}
@@ -398,11 +391,18 @@ class Timeline extends Component {
     var posts = [];
     let splited = [];
 
-    let categories = this.state.selectValue
-    categories = categories.toString();
-    splited = categories.split(",");
+    // let categories = this.state.selectValue
+    // categories = categories.toString();
+    // splited = categories.split(",");
 
-    console.log("selectValue", splited);
+    // filtering
+    if (this.state.filterValue != "") {
+      let categories = this.state.filterValue
+      categories = categories.toString();
+      splited = categories.split(",");
+    } else {
+      splited = ["Housing", "Legal", "Food", "Education"]
+    }
 
     // for (var i = 0; i < this.state.counter; i++) {
     //   if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
@@ -461,9 +461,9 @@ class Timeline extends Component {
 
   render () {
     const value = this.state.option && this.state.option.value;
-    var btnClass = classNames('postButton');
+    var searchClass = classNames('search-bar');
     if (this.state.option) {
-      btnClass += ` ${this.state.option.label}`
+      searchClass += ` ${this.state.option.label}`
     };
 
     var options = DATA.CITIES;
@@ -481,6 +481,19 @@ class Timeline extends Component {
       chosen = ["Housing", "Food"]
     };
 
+    let topics = [];
+
+    for (var i = 0; i < chosen.length; i++) {
+      topics.push({label: chosen[i], value: chosen[i],})
+    }
+
+    // const topics = [
+    // { label: 'Housing', value: 'Housing' },
+    // { label: 'Food', value: 'Food' },
+    // { label: 'Legal', value: 'Legal' },
+    // { label: 'Education', value: 'Education' },
+    // ];
+
     console.log("category function", this.handleCategory);
 
     return (
@@ -492,38 +505,28 @@ class Timeline extends Component {
           { this.state.loaded ?
             <div className="timeline-content">
 
-              <div className="search-bar">
-                <input type="text" placeholder="Make a post!" className="search" onChange={evt => this.updateInputValue(evt)}/>
-                <Select
-                  className="timeline-select"
-                  name="form-field-name"
-                  value={value}
-                  placeholder="Category*"
-                  onChange={this.handleChange}
-                  options={[
-                    { value: 'one', label: 'Housing' },
-                    { value: 'two', label: 'Food' },
-                  ]}
-                />
-              <div className={btnClass} onClick={this._handleClick}>POST</div>
-             </div>
-             
-              <div className="timeline-title">YOUR FEED</div>
+              <div className="timeline-title">YOUR FEED <div className="cityText">(BOSTON, MA)</div></div>
               <div className="search-bar-2">
-                <div className="city-wrapper">
-                  <div className="city-title">Your current city:</div>
-                  <VirtualizedSelect ref="citySelect"
+                <div className="filter">
+                  <Select
                     className="timeline-multiselect"
-          					options={options}
+          					closeOnSelect={false}
+          					multi
+                    joinValues
+          					onChange={this.handleSelectChange}
+          					options={topics}
+          					placeholder="Filter by Category"
+                    removeSelected={true}
           					simpleValue
-          					clearable
-          					name="select-city"
-          					value={this.state.selectValueCity}
-          					onChange={this.updateValue}
-          					searchable
-          					labelKey="name"
-          					valueKey="name"
+          					value={this.state.filterValue}
           				/>
+                  {this.state.chosen ?
+                    <div>
+                      <CategoriesPopup chosen={chosen} handleCategoryFunction={this.handleCategory}/>
+                      <div className="modal" onClick={this._handleChosenClick}></div>
+                    </div> :
+                    <div className="show-categories" onClick={this._handleChosenClick}>View Categories</div>
+                  }
                 </div>
 
                 <Select
@@ -535,21 +538,32 @@ class Timeline extends Component {
                   options={[
                     { value: 'two', label: 'Highest Rated' },
                     { value: 'three', label: 'Most Popular' },
-                    { value: 'one', label: "Favorites First"}
+                    { value: 'one', label: "Bookmarked First"}
                   ]}
                 />
-
               </div>
+
+              <div className={searchClass}>
+                <input type="text" placeholder="Make a post!" className="search" onChange={evt => this.updateInputValue(evt)}/>
+                <Select
+                  className="timeline-select"
+                  name="form-field-name"
+                  value={value}
+                  placeholder="Category*"
+                  onChange={this.handleChange}
+                  options={[
+                    { value: 'one', label: 'Housing' },
+                    { value: 'two', label: 'Food' },
+                    { value: 'two', label: 'Legal' },
+                    { value: 'two', label: 'Education' },
+                  ]}
+                />
+              <div className="postButton" onClick={this._handleClick}>POST</div>
+             </div>
+
               {this.createPost()}
             </div> :
             <div>Loading...</div> }
-            {this.state.chosen ?
-              <div>
-                <div className="show-categories sc-open" onClick={this._handleChosenClick}>Hide Topics</div>
-                <CategoriesPopup chosen={chosen} handleCategoryFunction={this.handleCategory}/>
-              </div> :
-              <div className="show-categories" onClick={this._handleChosenClick}>View Topic Tags</div>
-            }
           </div>
         </switch>
       </HashRouter>

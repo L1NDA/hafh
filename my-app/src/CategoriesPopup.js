@@ -45,11 +45,16 @@ class CategoriesPopup extends Component {
 
     return (
         <div className="categories-scroll">
+          <div className="categories-scroll-title">CATEGORIES</div>
+          <div className="categories-scroll-row">
             <ImageBoxFood handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[0]} CategoryName={categories[0]}/>
             <ImageBoxHousing handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[1]} CategoryName={categories[1]}/>
+          </div>
+          <div className="categories-scroll-row">
             <ImageBoxLegal handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
             <ImageBoxEducation handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
-        </div>
+          </div>
+      </div>
     );
   }
 }

@@ -12,7 +12,7 @@ html {
 }
 
 .timeline {
-  background-color: lightgray;
+  background-color: #E3E2E4;
   height: 100%;
   width: 100%;
   display: flex;
@@ -32,14 +32,20 @@ html {
   align-items: center;
   justify-content: flex-start;
   width: 900px;
-  border-style: solid;
+  background-color: gray;
   border-radius: 10px;
   padding: 20px 20px;
+  margin-top: 40px;
 }
 
 .search-bar > div {
   margin: 0 15px;
 
+}
+
+.cityText {
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .search {
@@ -74,6 +80,7 @@ html {
   width: 150px;
   height: 35px;
   background-color: gray;
+  border: 2px solid white;
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -81,7 +88,12 @@ html {
   font-size: 12px;
   letter-spacing: 1px;
   color: white;
-  cursor: not-allowed;
+}
+
+.postButton:hover {
+  cursor: pointer;
+  color: gray;
+  background-color: white;
 }
 
 .timeline-title {
@@ -92,6 +104,9 @@ html {
   font-size: 40px;
   font-weight: 800;
   border-bottom: 0.5px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-bar-2 {
@@ -172,8 +187,7 @@ html {
 }
 
 .housing-label {
-  background-color: none;
-  border: 1px solid white;
+  background-color: gray;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.5px;
@@ -191,6 +205,13 @@ html {
   margin-bottom: -2%;
 }
 
+.housing-label:hover {
+  cursor: pointer;
+  background-color: white;
+  color: gray;
+  transition: all 0.2s linear;
+}
+
 .star {
   align-self: flex-end;
   margin-right: 50px;
@@ -199,6 +220,8 @@ html {
 
 .star:hover {
   color: black;
+  cursor: pointer;
+  transition: color 0.3s linear;
 }
 
 .favorite {
@@ -256,35 +279,29 @@ html {
 
 .rating {
   font-size: 10px;
-  margin: -10px 0;
+  margin: 10px;
 }
 
 .triangle-top {
-  width: 0;
-  height: 0;
-  border: solid 15px;
-  border-color: transparent transparent white transparent;
   margin-bottom: 5px;
   z-index: 10;
+  color: white;
 }
 
 .triangle-top:hover {
-  border-color: transparent transparent gray transparent;
-  transition: all 0.3s linear;
+  color: lightgreen;
+  cursor: pointer;
 }
 
 .triangle-bottom {
   margin-top: 5px;
-  width: 0;
-  height: 0;
-  border: solid 15px;
-  border-color: white transparent transparent transparent;
   z-index: 10;
+  color: white;
 }
 
 .triangle-bottom:hover {
-  border-color: gray transparent transparent transparent;
-  transition: all 0.3s linear;
+  color: red;
+  cursor: pointer;
 }
 
 /* random other shit */
@@ -425,15 +442,22 @@ html {
 
 .categories-scroll {
   background-color: white;
-  width: 100vw;
+  border-radius: 20px;
+  width: 40vw;
+  height: 75vh;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 15%;
+  left: 30%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
-  padding: 0 20px;
+  justify-content: center;
+  z-index: 100;
+}
+
+.categories-scroll-row {
+  display: flex;
+  margin: 10px 0;
 }
 
 .categories-box {
@@ -446,26 +470,22 @@ html {
 }
 
 .show-categories {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  background-color: gray;
-  height: 40px;
-  width: 175px;
-  border-radius: 25px;
   font-size: 12px;
-  color: white;
+  color: gray;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
+  margin: 0 15px;
 }
 
 .show-categories:hover {
-  background-color: black;
-  transition: background-color 0.2s ease-in;
+  color: black;
+  transition: color 0.2s ease-in;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
 }
 
 .sc-open {
@@ -485,4 +505,8 @@ html {
 .Food {
   background-color: #f5a99b;
   cursor: pointer;
+}
+
+.enabled {
+  cursor: default;
 }

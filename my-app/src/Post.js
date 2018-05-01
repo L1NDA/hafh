@@ -34,7 +34,7 @@ class Post extends Component {
       goodRating: good,
       badRating: bad,
       clicked: false,
-      voted: false 
+      voted: false
     })
   }
 
@@ -149,7 +149,7 @@ class Post extends Component {
         <div className={postClass}>
           <div className="housing-label" onClick={this._handleclickSort}>{this.props.type}</div>
             <FontAwesome
-              name='star'
+              name='bookmark'
               className={starClass}
               size='lg'
               onClick={this._handleFavorites}
@@ -179,8 +179,20 @@ class Post extends Component {
             </div>
             <div className="ratings">
               <div className="rating" type="good">{this.state.goodRating}</div>
-              <div className="triangle-top" onClick={this._handleclickTop}></div>
-              <div className="triangle-bottom" onClick={this._handleclickBottom}></div>
+                <FontAwesome
+                  onClick={this._handleclickTop}
+                  name='thumbs-up'
+                  className="triangle-top"
+                  size='lg'
+                  style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+                />
+                <FontAwesome
+                  onClick={this._handleclickBottom}
+                  name='thumbs-down'
+                  className="triangle-bottom"
+                  size='lg'
+                  style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
+                />
               <div className="rating" type="bad">{this.state.badRating}</div>
             </div>
           </div>

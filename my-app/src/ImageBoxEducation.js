@@ -67,7 +67,7 @@ class ImageBox extends Component {
             onClick={this._handleInfo}
             name='info-circle'
             className="info-circle"
-            size='lg'
+            size='2x'
             style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
           />
           <div id={this.props.CategoryName} className={this.props.class}>
