@@ -468,11 +468,11 @@ class Timeline extends Component {
 
     // filtering
     if (this.state.selectValue !== "") {
-      let categories = this.state.selectValue
+      let categories = this.state.selectValue;
       categories = categories.toString();
       chosen = categories.split(",");
     } else {
-      chosen = ["Housing", "Food"]
+      chosen = ["Housing", "Food", "Legal", "Education"];
     };
 
     let topics = [];
@@ -549,8 +549,8 @@ class Timeline extends Component {
                   options={[
                     { value: 'one', label: 'Housing' },
                     { value: 'two', label: 'Food' },
-                    { value: 'two', label: 'Legal' },
-                    { value: 'two', label: 'Education' },
+                    { value: 'three', label: 'Legal' },
+                    { value: 'four', label: 'Education' },
                   ]}
                 />
               <div className="postButton" onClick={this._handleClick}>POST</div>
