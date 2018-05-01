@@ -329,7 +329,7 @@ class Timeline extends Component {
   _handleClick = () => {
 
     var Option = [`${this.state.option.label}`]
-    var Name = [`Manny Cohen`]
+    var Name = [`Jane Cohen`]
     var Post = [`${this.state.inputValue}`]
     var Img = ["./img/stock2.jpg"]
     var Good = [0];
@@ -417,7 +417,7 @@ class Timeline extends Component {
 
     this.state.postLocation.map((location, i) => {
       let url = "";
-      if (this.state.name[i] === "Manny Cohen") {
+      if (this.state.name[i] === "Jane Cohen") {
         url = "https://l1nda.github.io/hafh/#/profile"
       } else {
         url = "https://l1nda.github.io/hafh/#/sara"
