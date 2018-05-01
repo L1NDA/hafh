@@ -28,14 +28,14 @@ html {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 100vh;
   flex-direction: column;
 }
 
 .messages-content {
   padding: 50px 0;
-  width: 90%;
+  width: 70%;
   height: 100%;
   position: relative;
 }
