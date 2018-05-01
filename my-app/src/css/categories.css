@@ -76,8 +76,8 @@ html {
   justify-content: center;
   margin: 0 10px;
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   flex-shrink: 0;
   z-index: 3;
   cursor: pointer;
@@ -88,7 +88,7 @@ html {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 20px;
   letter-spacing: 1px;
   font-weight: 800;
 }
@@ -111,12 +111,14 @@ html {
 
 .info-circle {
   position: absolute;
-  top: -10px;
+  top: -15px;
   left: -5px;
   z-index: 10;
-  padding: 5px;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 80px;
   background-color: white;
   color: gray;
@@ -133,6 +135,13 @@ html {
   font-weight: 800;
   color: black;
   margin-bottom: 15px;
+}
+
+.categories-scroll-text {
+  font-size: 10px;
+  color: black;
+  margin: 5px 100px;
+  text-align: center;
 }
 
 /* info modals  */
@@ -155,6 +164,12 @@ html {
   overflow-y: scroll;
 }
 
+.default {
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+}
+
 /* .imagebox-photo {
   width: 100%;
   height: 100%;
@@ -172,7 +187,7 @@ html {
 }
 
 .chosen:hover {
-  filter: brightness(.5) saturate(50%);
+  /* filter: brightness(.5) saturate(50%); */
 }
 
 .not-chosen {
@@ -180,5 +195,5 @@ html {
 }
 
 .not-chosen:hover {
-  filter: brightness(1) saturate(100%);
+  /* filter: brightness(1) saturate(100%); */
 }

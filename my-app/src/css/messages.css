@@ -22,9 +22,21 @@ html {
   flex-direction: column;
 }
 
+.messages-sara {
+  background-color: #E3E2E4;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .messages-content {
   padding: 50px 0;
-  width: 65%;
+  width: 90%;
+  height: 100%;
   position: relative;
 }
 
@@ -132,12 +144,4 @@ html {
   height: 70px;
   width: 70px;
   margin-left: 25px;
-}
-
-.Housing {
-  background-color: #8fbdbb;
-}
-
-.Food {
-  background-color: #f5a99b;
 }

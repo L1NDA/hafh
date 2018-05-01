@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import classNames from "classnames";
 import "./css/timeline.css";
 import Header from './Header.js';
@@ -190,7 +191,6 @@ class Timeline extends Component {
       }
 
       else if (option.label === "Favorites First") {
-        console.log("favorites state", this.state.favorited);
         let totalArray = [];
         let length = this.state.favorited.length;
         let favoritesCounter = 0;
@@ -254,8 +254,6 @@ class Timeline extends Component {
           }
         };
 
-        console.log("favorites array", FaveArray);
-
         this.setState({
           selectedOption: OptionArray,
           name: NameArray,
@@ -266,7 +264,6 @@ class Timeline extends Component {
           postLocation: CityArray,
           favorited: FaveArray
         }, function() {
-          console.log("state", this.state);
           this.createPost();
         })
       }
@@ -319,14 +316,11 @@ class Timeline extends Component {
       postLocation: CityArray,
       favorited: FaveArray,
     }, function() {
-      console.log("state", this.state);
       this.createPost();
     });
   }
 
   handleSelectChange = (value) => {
-		// console.log('You\'ve selected:', this.state.selectValue);
-    // console.log("value", value);
 		this.setState({ filterValue: value }, function(){
       this.createPost();
     });
@@ -370,7 +364,7 @@ class Timeline extends Component {
   }
 
   handleCategory = (name) => {
-    let tempSelectValue = this.state.selectValue
+    let tempSelectValue = this.state.selectValue;
     let index = tempSelectValue.indexOf(name);
     if (index > -1) {
       tempSelectValue.splice(index, 1);
@@ -391,17 +385,18 @@ class Timeline extends Component {
     var posts = [];
     let splited = [];
 
-    // let categories = this.state.selectValue
-    // categories = categories.toString();
-    // splited = categories.split(",");
+    let categories = this.state.selectValue;
+    console.log("selectvalue", this.state.selectValue);
+    categories = categories.toString();
+    splited = categories.split(",");
 
     // filtering
     if (this.state.filterValue != "") {
-      let categories = this.state.filterValue
+      let categories = this.state.filterValue;
       categories = categories.toString();
       splited = categories.split(",");
     } else {
-      splited = ["Housing", "Legal", "Food", "Education"]
+      splited = this.state.selectValue;
     }
 
     // for (var i = 0; i < this.state.counter; i++) {
@@ -420,8 +415,6 @@ class Timeline extends Component {
     //   }
     // }
 
-    console.log("counter", this.state.counter);
-
     this.state.postLocation.map((location, i) => {
       let url = "";
       if (this.state.name[i] === "Manny Cohen") {
@@ -429,7 +422,7 @@ class Timeline extends Component {
       } else {
         url = "https://l1nda.github.io/hafh/#/sara"
       }
-      if (splited.includes(this.state.selectedOption[i]) && this.state.postLocation[i] === this.state.selectValueCity){
+      if (splited.includes(this.state.selectedOption[i])){
         posts.push(<Post
           img={this.state.postImg[i]}
           type={this.state.selectedOption[i]}
@@ -440,6 +433,7 @@ class Timeline extends Component {
           bad={this.state.badRating[i]}
           favorited={this.state.favorited[i]}
           url={url}
+          onClick={this._handleChosenClick}
         />)
       }
     });
@@ -494,8 +488,6 @@ class Timeline extends Component {
     // { label: 'Education', value: 'Education' },
     // ];
 
-    console.log("category function", this.handleCategory);
-
     return (
       <HashRouter>
         <switch>
@@ -544,6 +536,9 @@ class Timeline extends Component {
               </div>
 
               <div className={searchClass}>
+                <a href="https://l1nda.github.io/hafh/#/profile" className="href">
+                  <img className="make-post-pic" src={require(`./img/stock2.jpg`)}/>
+                </a>
                 <input type="text" placeholder="Make a post!" className="search" onChange={evt => this.updateInputValue(evt)}/>
                 <Select
                   className="timeline-select"

@@ -30,17 +30,24 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 900px;
   background-color: gray;
   border-radius: 10px;
-  padding: 20px 20px;
+  padding: 20px 50px;
   margin-top: 40px;
 }
 
-.search-bar > div {
-  margin: 0 15px;
+.search-bar > * {
+  margin: 0 10px;
 
+}
+
+.make-post-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  object-fit: cover;
 }
 
 .cityText {
@@ -130,12 +137,17 @@ html {
 
 .post {
   background-color: #8fbdbb;
-  height: 300px;
-  width: 900px;
+  /* height: 300px;
+  width: 900px; */
   margin: 50px 0;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.post:hover, .search-bar:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in;
 }
 
 .post-pic {
@@ -229,7 +241,7 @@ html {
 }
 
 .favorite:hover {
-  color: white;
+  /* color: white; */
 }
 
 .post-line {
@@ -256,6 +268,30 @@ html {
   background-color: gray;
   border-radius: 50px;
   object-fit: cover;
+}
+
+.expand-post {
+  margin-top: 15px;
+}
+
+.expand-post-pic {
+  height: 40px;
+  width: 40px;
+  background-color: gray;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.expand-post-person {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px 60px;
+}
+
+.expand-post-person > * {
+  margin-right: 20px;
 }
 
 .post-button {
@@ -293,6 +329,10 @@ html {
   cursor: pointer;
 }
 
+.triangle-top-clicked {
+  color: lightgreen;
+}
+
 .triangle-bottom {
   margin-top: 5px;
   z-index: 10;
@@ -302,6 +342,10 @@ html {
 .triangle-bottom:hover {
   color: red;
   cursor: pointer;
+}
+
+.triangle-bottom-clicked {
+  color: red;
 }
 
 /* random other shit */
@@ -438,21 +482,23 @@ html {
   border-bottom: 1px solid black;
 }
 
-/* for the categories popup on the bottom */
+/* for the categories popup modal */
 
 .categories-scroll {
   background-color: white;
   border-radius: 20px;
-  width: 40vw;
-  height: 75vh;
+  height: 550px;
+  width: 600px;
   position: absolute;
   top: 15%;
   left: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 60px;
   z-index: 100;
+  overflow-y: scroll;
 }
 
 .categories-scroll-row {
@@ -503,7 +549,17 @@ html {
 }
 
 .Food {
+  background-color: #B3BBD0;
+  cursor: pointer;
+}
+
+.Legal {
   background-color: #f5a99b;
+  cursor: pointer;
+}
+
+.Education {
+  background-color: #a0c8ab;
   cursor: pointer;
 }
 

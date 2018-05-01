@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { FormErrors } from './FormErrors';
 import classNames from "classnames";
 import "./css/timeline.css";
@@ -21,6 +22,9 @@ class Post extends Component {
       badRating: this.props.badRating,
       clicked: false,
       sent: false,
+      upvoted: false,
+      downvoted: false,
+      expandPost: false,
     }
   }
 
@@ -34,7 +38,6 @@ class Post extends Component {
       goodRating: good,
       badRating: bad,
       clicked: false,
-      voted: false
     })
   }
 
@@ -68,26 +71,27 @@ class Post extends Component {
   }
 
   _handleclickTop = () => {
-      if(!this.state.voted){
+      if(!this.state.upvoted && !this.state.downvoted){
 
       let good = parseInt(this.state.goodRating) + 1;
 
       this.setState({
         goodRating: good,
-        voted: true,
+        upvoted: true,
       })
       this.props.saveStuff;
     }
   }
 
   _handleclickBottom = () => {
-      if(!this.state.voted){
+      if(!this.state.upvoted && !this.state.downvoted){
       let bad = parseInt(this.state.badRating) + 1;
 
       this.setState({
         badRating: bad,
-        voted: true,
+        downvoted: true,
       })
+
       this.props.saveStuff;
     }
   }
@@ -102,6 +106,20 @@ class Post extends Component {
     this.props.sort // this doesn't work b/c idk how to change the parent state from a child
 }
 
+  _expandPost = () => {
+    const clicker = ReactDOM.findDOMNode(this);
+    clicker.scrollIntoView();
+    this.setState({
+      expandPost: !this.state.expandPost,
+    })
+    // window.scrollTo(0, clicker.offsetTop);
+    // scrollIntoView()
+    // const clicker = ReactDOM.findDOMNode(this);
+    // if (some_logic){
+    //   window.scrollTo(0, tesNode.offsetTop);
+    // }
+  }
+
 
   render () {
 
@@ -112,11 +130,23 @@ class Post extends Component {
       null
     }
 
+    var upVote = classNames('triangle-top');
+    var downVote = classNames('triangle-bottom');
+
+    if (this.state.upvoted) {
+      upVote += " triangle-top-clicked"
+    }
+
+    if (this.state.downvoted) {
+      downVote += " triangle-bottom-clicked"
+    }
+
+
     console.log("favorited", this.props.favorited);
     console.log("favorited state", this.state.favorited);
 
     return (
-      <div className="generic-container">
+      <div className="generic-container" onClick={this._expandPost}>
         {this.state.clicked ?
           <div className="generic-container">
 
@@ -147,7 +177,7 @@ class Post extends Component {
         }
 
         <div className={postClass}>
-          <div className="housing-label" onClick={this._handleclickSort}>{this.props.type}</div>
+          <div className="housing-label" onClick={this.props.onClick}>{this.props.type}</div>
             <FontAwesome
               name='bookmark'
               className={starClass}
@@ -182,14 +212,14 @@ class Post extends Component {
                 <FontAwesome
                   onClick={this._handleclickTop}
                   name='thumbs-up'
-                  className="triangle-top"
+                  className={upVote}
                   size='lg'
                   style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
                 />
                 <FontAwesome
                   onClick={this._handleclickBottom}
                   name='thumbs-down'
-                  className="triangle-bottom"
+                  className={downVote}
                   size='lg'
                   style={{ textShadow: '0 1px 0 rgba(100, 100, 100, 0.1)' }}
                 />
@@ -197,6 +227,24 @@ class Post extends Component {
             </div>
           </div>
           <div className="post-line"></div>
+          {
+            this.state.expandPost ?
+            <div className="expand-post">
+              <div className="expand-post-person">
+                <a href="https://l1nda.github.io/hafh/#/sara" className="href">
+                  <img className="expand-post-pic" src={require(`./img/stock3.jpg`)}/>
+                </a>
+                Let me ask my friend!
+              </div>
+              <div className="expand-post-person">
+                <a href="https://l1nda.github.io/hafh/#/sara" className="href">
+                  <img className="expand-post-pic" src={require(`./img/stock6.jpg`)}/>
+                </a>
+                Where is this?
+              </div>
+            </div> :
+            null
+          }
           <div className="post-response">
             <a href="https://l1nda.github.io/hafh/#/profile" className="href">
               <img className="post-response-pic" src={require(`./img/stock2.jpg`)}/>

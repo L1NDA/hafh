@@ -8,6 +8,11 @@ import ImageBoxFood from './ImageBoxFood.js';
 import ImageBoxHousing from './ImageBoxHousing.js';
 import ImageBoxLegal from './ImageBoxLegal.js';
 import ImageBoxEducation from './ImageBoxEducation.js';
+import CategoriesPopupDefault from './CategoriesPopupDefault.js';
+import CategoriesPopupEducation from './CategoriesPopupEducation.js';
+import CategoriesPopupFood from './CategoriesPopupFood.js';
+import CategoriesPopupLegal from './CategoriesPopupLegal.js';
+import CategoriesPopupHousing from './CategoriesPopupHousing.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -21,12 +26,37 @@ import "./css/categories.css";
 class CategoriesPopup extends Component {
     constructor (props) {
         super(props);
+        this.handleModal = this.handleModal.bind(this);
         this.state = {
           CategoryName: ["Food", "Housing", "Legal", "Education"],
+          modalType: "Default",
         }
     }
     // <a href={this.props.link} className="imagebox-container">
 
+    handleModal = (category) => {
+      this.setState({
+        modalType: category
+      })
+    }
+
+    renderModal = () => {
+      if (this.state.modalType === "Default") {
+        return <CategoriesPopupDefault chosen={this.props.chosen} handleCategoryFunction={this.props.handleCategoryFunction} handleModal={this.handleModal} CategoryName="Default"/>
+      }
+      else if (this.state.modalType === "Education") {
+        return <CategoriesPopupEducation handleModal={this.handleModal} CategoryName="Default"/>
+      }
+      else if (this.state.modalType === "Legal") {
+        return <CategoriesPopupLegal handleModal={this.handleModal} CategoryName="Default"/>
+      }
+      else if (this.state.modalType === "Food") {
+        return <CategoriesPopupFood handleModal={this.handleModal} CategoryName="Default"/>
+      }
+      else if (this.state.modalType === "Housing") {
+        return <CategoriesPopupHousing handleModal={this.handleModal} CategoryName="Default"/>
+      }
+    }
 
     render() {
 
@@ -45,15 +75,7 @@ class CategoriesPopup extends Component {
 
     return (
         <div className="categories-scroll">
-          <div className="categories-scroll-title">CATEGORIES</div>
-          <div className="categories-scroll-row">
-            <ImageBoxFood handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[0]} CategoryName={categories[0]}/>
-            <ImageBoxHousing handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[1]} CategoryName={categories[1]}/>
-          </div>
-          <div className="categories-scroll-row">
-            <ImageBoxLegal handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[2]} CategoryName={categories[2]}/>
-            <ImageBoxEducation handleCategoryFunctionChild={this.props.handleCategoryFunction} class={categoriesClassNames[3]} CategoryName={categories[3]}/>
-          </div>
+          {this.renderModal()}
       </div>
     );
   }
