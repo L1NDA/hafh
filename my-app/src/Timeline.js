@@ -105,7 +105,7 @@ class Timeline extends Component {
         postImg: ["./img/stock7.jpg", "./img/stock5.jpg", "./img/stock8.jpg","./img/stock4.jpg"],
         myImg: "./img/stock2.jpg",
         name: ["Sara Zandvakilli","Micah Trees","Eugenio Beatriz","Kapila Sameer"],
-        post: ["Renting out a 1bedroom/1bath studio apartment in the North End!", "The Lamont vending machine at Harvard has some surprisingly quality hummus.", "Currently looking for a legal advice for a toxic roommate who refuses to leave! What are my risks as an immigrant?","Hosting a community potluck this Saturday at 3pm! Msg for more info! #Love"],
+        post: ["Renting out a 1bedroom/1bath studio apartment in the North End!", "Hosting a community potluck this Saturday at 3pm! Msg for more info! #Love", "Currently looking for a legal advice for a toxic roommate who refuses to leave! What are my risks as an immigrant?","Does anyone have information about how my daughter should prepare for the exam school test?"],
         counter: 4,
         inputValue: "",
         selectValue: [],
