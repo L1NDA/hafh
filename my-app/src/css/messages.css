@@ -11,8 +11,8 @@ html {
   box-sizing: inherit;
 }
 
-.messages {
-  background-color: lightgray;
+.messages-total {
+  background-color: #E3E2E4;
   height: 100%;
   width: 100%;
   display: flex;
@@ -24,7 +24,7 @@ html {
 
 .messages-content {
   padding: 50px 0;
-  width: 100%;
+  width: 65%;
   position: relative;
 }
 

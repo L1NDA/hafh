@@ -50,7 +50,7 @@ class Messages extends Component {
     return (
       <HashRouter>
         <switch>
-          <div className="messages">
+          <div className="messages-total">
             <Header button1="profile" button2="log out" loggedIn={true} link="https://l1nda.github.io/hafh/#/"/>
             <div className="messages-content">
               <div className="messages-title">YOUR MESSAGES</div>
