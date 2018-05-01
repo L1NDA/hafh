@@ -197,7 +197,7 @@ class Timeline extends Component {
         this.sortPostsRatings(sortedRatings, length);
       }
 
-      else if (option.label === "Favorites First") {
+      else if (option.label === "Bookmarked First") {
         let totalArray = [];
         let length = this.state.favorited.length;
         let favoritesCounter = 0;
