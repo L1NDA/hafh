@@ -33,6 +33,10 @@ class Header extends Component {
             : null
           }
           {this.props.loggedIn ?
+            <img className="flag" src={require(`./img/flag.jpg`)}/>
+            : null
+          }
+          {this.props.loggedIn ?
             <a href="https://l1nda.github.io/hafh/#/profile" className="href"><HeaderButton text={this.props.button1}/></a>
             : <HeaderButton text={this.props.button1}/>
           }

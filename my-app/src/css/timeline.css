@@ -541,6 +541,23 @@ html {
   background-color: gray;
 }
 
+.onboarding1 {
+  height: 50px;
+  width: 150px;
+  background-color: gray;
+  color: white;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.onboarding1:hover {
+  background-color: #f5a99b;
+  cursor: pointer;
+}
+
 /* these have to be at bottom to have first priority */
 
 .Housing {

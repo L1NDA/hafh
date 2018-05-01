@@ -101,3 +101,11 @@ html, body {
   padding: 0;
   margin: 0;
 }
+
+.flag {
+  margin-right: 50px;
+}
+
+.flag:hover {
+  cursor: pointer;
+}

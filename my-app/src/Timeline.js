@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import classNames from "classnames";
 import "./css/timeline.css";
 import Header from './Header.js';
+import CategoriesPopupOnboarding from './CategoriesPopupOnboarding.js';
 import Post from './Post.js';
 import CategoriesPopup from './CategoriesPopup.js';
 import { HashRouter } from 'react-router-dom';
@@ -92,12 +93,14 @@ class Timeline extends Component {
         postLocation: JSON.parse(localStorage.getItem("postLocation")),
         selectValueCity: JSON.parse(localStorage.getItem("selectValueCity")),
         loaded: true,
+        onboarded: JSON.parse(localStorage.getItem("onboarded")),
+        onboarded1: JSON.parse(localStorage.getItem("onboarded1"))
       })
     })}
 
     else{
       this.setState({
-        selectedOption: ["Housing", "Food", "Legal", "Education","Housing"],
+        selectedOption: ["Housing", "Food", "Legal", "Education"],
         option: "",
         postImg: ["./img/stock7.jpg", "./img/stock5.jpg", "./img/stock8.jpg","./img/stock4.jpg"],
         myImg: "./img/stock2.jpg",
@@ -105,10 +108,12 @@ class Timeline extends Component {
         post: ["Renting out a 1bedroom/1bath studio apartment in the North End!", "The Lamont vending machine at Harvard has some surprisingly quality hummus.", "Currently looking for a legal advice for a toxic roommate who refuses to leave! What are my risks as an immigrant?","Hosting a community potluck this Saturday at 3pm! Msg for more info! #Love"],
         counter: 4,
         inputValue: "",
-        selectValue: ["Housing", "Food", "Legal", "Education"],
+        selectValue: [],
         postLocation: ["Boston", "Boston","Boston","Boston"],
         selectValueCity: "Boston",
-        favorited: [false, true,false]
+        favorited: [false, true,false],
+        onboarded: false,
+        onboarded1: true
       }, function() {
         this.saveStuff();
 
@@ -153,6 +158,8 @@ class Timeline extends Component {
   localStorage.setItem("postLocation", JSON.stringify(this.state.postLocation))
   localStorage.setItem("selectValue", JSON.stringify(this.state.selectValue))
   localStorage.setItem("selectValueCity", JSON.stringify(this.state.selectValueCity))
+  localStorage.setItem("onboarded", JSON.stringify(this.state.onboarded))
+  localStorage.setItem("onboarded1", JSON.stringify(this.state.onboarded1))
   }
 
 
@@ -453,6 +460,27 @@ class Timeline extends Component {
 		});
 	}
 
+  onboard = () => {
+    this.setState({
+			onboarded: true,
+      onboarded1: false
+		}, function() {
+      this.saveStuff();
+      console.log("0: onboarded", this.state.onboarded);
+      console.log("0: onboarded1", this.state.onboarded1);
+    });
+  }
+
+  onboard1 = () => {
+    this.setState({
+			onboarded1: false
+		}, function() {
+      this.saveStuff();
+      console.log("1: onboarded", this.state.onboarded);
+      console.log("1: onboarded1", this.state.onboarded1);
+    });
+  }
+
   render () {
     const value = this.state.option && this.state.option.value;
     var searchClass = classNames('search-bar');
@@ -488,6 +516,8 @@ class Timeline extends Component {
     // { label: 'Education', value: 'Education' },
     // ];
 
+
+
     return (
       <HashRouter>
         <switch>
@@ -496,6 +526,27 @@ class Timeline extends Component {
 
           { this.state.loaded ?
             <div className="timeline-content">
+
+              {this.state.onboarded ?
+                null :
+                  this.state.onboarded1 ?
+                      <div className="generic-container">
+                        <div className="categories-scroll">
+                            <div className="onboarding">
+                              <div className="info-title">Welcome to Home Away From Home, <b className="dynamic-text">Jane!</b></div>
+                              <div className="body">This is your feed, where you can see what other immigrants from <b className="dynamic-text">China </b>
+                               recommend around the <b className="dynamic-text">Boston</b> area. You can also ask questions by making a post
+                              and connect with these immigrants by directly messaging them.</div>
+                            </div>
+                            <div className="onboarding1" onClick={this.onboard1}>Continue</div>
+                        </div>
+                        <div className="modal" onClick={this.onboard1}></div>
+                      </div> :
+                    <div className="generic-container">
+                      <CategoriesPopupOnboarding chosen={this.state.selectValue} handleCategoryFunction={this.handleCategory}/>
+                      <div className="modal" onClick={this.onboard}></div>
+                    </div>
+              }
 
               <div className="timeline-title">YOUR FEED <div className="cityText">(BOSTON, MA)</div></div>
               <div className="search-bar-2">
