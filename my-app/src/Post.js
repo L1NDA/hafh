@@ -107,8 +107,8 @@ class Post extends Component {
 }
 
   _expandPost = () => {
-    const clicker = ReactDOM.findDOMNode(this);
-    clicker.scrollIntoView();
+    // const clicker = ReactDOM.findDOMNode(this);
+    // clicker.scrollIntoView();
     this.setState({
       expandPost: !this.state.expandPost,
     })
